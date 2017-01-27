@@ -1,0 +1,35 @@
+@if $use-rotateOutBig == true {
+
+	@-webkit-keyframes rotateOutBig {
+		0% {
+			-webkit-transform-origin: $rotate-origin;
+			-webkit-transform: rotate(0) scale(1,1);
+			opacity: 1;
+		}
+
+		100% {
+			-webkit-transform-origin: $rotate-origin;
+			-webkit-transform: rotate($rotate-degrees-max * 4) scale(0.2, 0.2);
+			opacity: 0;
+		}
+	}
+
+	@keyframes rotateOutBig {
+		0% {
+			transform-origin: $rotate-origin;
+			transform: rotate(0) scale(1,1);
+			opacity: 1;
+		}
+
+		100% {
+			transform-origin: $rotate-origin;
+			transform: rotate($rotate-degrees-max * 4) scale(0.2, 0.2);
+			opacity: 0;
+		}
+	}
+
+	.out .rotateOutBig {
+		@include animate-prefixer(animation-name, rotateOutBig);
+	}
+
+}

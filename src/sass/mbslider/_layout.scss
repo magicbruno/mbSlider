@@ -1,0 +1,43 @@
+/** RESET AND LAYOUT
+===================================*/
+
+.mb-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.mbslider {
+  margin: 0;
+  padding: 0;
+}
+
+ul.mbslider {
+  list-style: none;
+}
+
+.mb-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+}
+
+
+/* LOADER */
+
+.mb-wrapper .mb-loading {
+  min-height: 50px;
+  background: url($loader) center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}

@@ -1,19 +1,19 @@
-@if $use-rollIn==true {
+@if $use-rollInRight==true {
   // originally authored by Nick Pettit - https://github.com/nickpettit/glide
-  @-webkit-keyframes rollIn {
+  @-webkit-keyframes rollInRight {
     0% {
       opacity: 0;
-      -webkit-transform: translateX(-150%) rotate(-$base-degrees * 6);
+      -webkit-transform: translateX(150%) rotate($base-degrees * 6);
     }
     100% {
       opacity: 1;
       -webkit-transform: translateX(0px) rotate(0deg);
     }
   }
-  @keyframes rollIn {
+  @keyframes rollInRight {
     0% {
       opacity: 0;
-      transform: translateX(-150%) rotate(-$base-degrees * 6);
+      transform: translateX(150%) rotate($base-degrees * 6));
     }
     100% {
       opacity: 1;
@@ -21,8 +21,8 @@
     }
   }
   .in {
-    .rollIn, .rollInleft {
-      @include animate-prefixer(animation-name, rollIn);
+    .rollInRight {
+      @include animate-prefixer(animation-name, rollInRight);
     }
   }
 }

@@ -1,6 +1,6 @@
 /**
- * bxSlider v4.2.5
- * Copyright 2013-2017 Steven Wanderski
+ * mbSlider v1.0.0
+ * Copyright 2013-2017 Bruno Migliaretti
  * Written while drinking Belgian ales and listening to jazz
 
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -93,6 +93,18 @@ body {
 .out .animated.hinge.slowOut {
   -webkit-animation-duration: 3s;
   animation-duration: 3s;
+}
+
+/* line 80, ../sass/helpers/_base.scss */
+.flippedY {
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 83, ../sass/helpers/_base.scss */
+.flippedX {
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 
 /* line 1, ../sass/helpers/_delay.scss */
@@ -1284,6 +1296,42 @@ body {
   animation-name: rotateIn;
 }
 
+@-webkit-keyframes rotateInBig {
+  0% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: rotate(-1000deg) scale(0.1, 0.1);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: rotate(0) scale(1, 1);
+    opacity: 1;
+  }
+}
+@keyframes rotateInBig {
+  0% {
+    transform-origin: center center;
+    transform: rotate(-800deg) scale(0.1, 0.1);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform-origin: center center;
+    transform: rotate(0) scale(1, 1);
+    opacity: 1;
+  }
+}
+/* line 39, ../sass/animations/rotate-enter/_rotateInBig.scss */
+.in .rotateInBig {
+  -webkit-animation-name: rotateInBig;
+  animation-name: rotateInBig;
+}
+
 @-webkit-keyframes rotateInDownLeft {
   0% {
     -webkit-transform-origin: left bottom;
@@ -1809,7 +1857,7 @@ body {
 @-webkit-keyframes rollIn {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%) rotate(-120deg);
+    -webkit-transform: translateX(-150%) rotate(-180deg);
   }
   100% {
     opacity: 1;
@@ -1819,15 +1867,15 @@ body {
 @keyframes rollIn {
   0% {
     opacity: 0;
-    transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-150%) rotate(-180deg);
   }
   100% {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
   }
 }
-/* line 15, ../sass/animations/special/_rollIn.scss */
-.in .rollIn {
+/* line 24, ../sass/animations/special/_rollIn.scss */
+.in .rollIn, .in .rollInleft {
   -webkit-animation-name: rollIn;
   animation-name: rollIn;
 }
@@ -1839,7 +1887,7 @@ body {
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(100%) rotate(120deg);
+    -webkit-transform: translateX(150%) rotate(180deg);
   }
 }
 @keyframes rollOut {
@@ -1849,11 +1897,11 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translateX(100%) rotate(120deg);
+    transform: translateX(150%) rotate(180deg);
   }
 }
-/* line 29, ../sass/animations/special/_rollOut.scss */
-.out .rollOut {
+/* line 24, ../sass/animations/special/_rollOut.scss */
+.out .rollOut, .out .rollOutRight {
   -webkit-animation-name: rollOut;
   animation-name: rollOut;
 }
@@ -2152,11 +2200,12 @@ body {
   animation-name: zoomOutUp;
 }
 
-/** VARIABLES 
+/** VARIABLES
 ===================================*/
 /** RESET AND LAYOUT
 ===================================*/
-.bx-wrapper {
+/* line 4, ../sass/mbslider/_layout.scss */
+.mb-wrapper {
   position: relative;
   margin: 0 auto 60px;
   padding: 0;
@@ -2164,33 +2213,34 @@ body {
   -ms-touch-action: pan-y;
   touch-action: pan-y;
 }
-.bx-wrapper img {
+/* line 11, ../sass/mbslider/_layout.scss */
+.mb-wrapper img {
   max-width: 100%;
   display: block;
 }
-.bxslider {
+
+/* line 17, ../sass/mbslider/_layout.scss */
+.mbslider {
   margin: 0;
   padding: 0;
 }
-ul.bxslider {
+
+/* line 22, ../sass/mbslider/_layout.scss */
+ul.mbslider {
   list-style: none;
 }
-.bx-viewport {
+
+/* line 26, ../sass/mbslider/_layout.scss */
+.mb-viewport {
   /*fix other elements on the page moving (on Chrome)*/
   -webkit-transform: translatez(0);
 }
-/** THEME
-===================================*/
-.bx-wrapper .bx-pager,
-.bx-wrapper .bx-controls-auto {
-  position: absolute;
-  bottom: -30px;
-  width: 100%;
-}
+
 /* LOADER */
-.bx-wrapper .bx-loading {
+/* line 34, ../sass/mbslider/_layout.scss */
+.mb-wrapper .mb-loading {
   min-height: 50px;
-  background: url('images/bx_loader.gif') center center no-repeat #fff;
+  background: url("images/bx_loader.gif") center center no-repeat #fff;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -2198,8 +2248,39 @@ ul.bxslider {
   left: 0;
   z-index: 2000;
 }
+
+/** THEME
+===================================*/
+/* line 10, ../sass/mbslider/_theme.scss */
+.mb-wrapper .mb-pager,
+.mb-wrapper .mb-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* IMAGE CAPTIONS */
+/* line 20, ../sass/mbslider/_theme.scss */
+.mb-wrapper .mb-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+/* line 27, ../sass/mbslider/_theme.scss */
+.mb-wrapper .mb-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+
 /* PAGER */
-.bx-wrapper .bx-pager {
+/* line 4, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager {
   text-align: center;
   font-size: .85em;
   font-family: Arial;
@@ -2207,7 +2288,8 @@ ul.bxslider {
   color: #666;
   padding-top: 20px;
 }
-.bx-wrapper .bx-pager.bx-default-pager a {
+/* line 11, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager.mb-default-pager a {
   background: #666;
   text-indent: -9999px;
   display: block;
@@ -2219,39 +2301,44 @@ ul.bxslider {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-.bx-wrapper .bx-pager.bx-default-pager a:hover,
-.bx-wrapper .bx-pager.bx-default-pager a.active,
-.bx-wrapper .bx-pager.bx-default-pager a:focus {
+/* line 22, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager.mb-default-pager a:hover, .mb-wrapper .mb-pager.mb-default-pager a.active, .mb-wrapper .mb-pager.mb-default-pager a:focus {
   background: #000;
 }
-.bx-wrapper .bx-pager-item,
-.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+/* line 29, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager-item,
+.mb-wrapper .mb-controls-auto .mb-controls-auto-item {
   display: inline-block;
   *zoom: 1;
   *display: inline;
 }
-.bx-wrapper .bx-pager-item {
+/* line 35, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager-item {
   font-size: 0;
   line-height: 0;
 }
+
 /* DIRECTION CONTROLS (NEXT / PREV) */
-.bx-wrapper .bx-prev {
+/* line 45, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-prev {
   left: 10px;
-  background: url('images/controls.png') no-repeat 0 -32px;
+  background: url("images/controls.png") no-repeat 0 -32px;
 }
-.bx-wrapper .bx-prev:hover,
-.bx-wrapper .bx-prev:focus {
+/* line 48, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-prev:hover, .mb-wrapper .mb-prev:focus {
   background-position: 0 0;
 }
-.bx-wrapper .bx-next {
+/* line 53, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-next {
   right: 10px;
-  background: url('images/controls.png') no-repeat -43px -32px;
+  background: url("images/controls.png") no-repeat -43px -32px;
 }
-.bx-wrapper .bx-next:hover,
-.bx-wrapper .bx-next:focus {
+/* line 56, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-next:hover, .mb-wrapper .mb-next:focus {
   background-position: -43px 0;
 }
-.bx-wrapper .bx-controls-direction a {
+/* line 61, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-direction a {
   position: absolute;
   top: 50%;
   margin-top: -16px;
@@ -2261,63 +2348,53 @@ ul.bxslider {
   text-indent: -9999px;
   z-index: 9999;
 }
-.bx-wrapper .bx-controls-direction a.disabled {
+/* line 70, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-direction a.disabled {
   display: none;
 }
+
 /* AUTO CONTROLS (START / STOP) */
-.bx-wrapper .bx-controls-auto {
+/* line 79, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto {
   text-align: center;
 }
-.bx-wrapper .bx-controls-auto .bx-start {
+/* line 81, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-start {
   display: block;
   text-indent: -9999px;
   width: 10px;
   height: 11px;
   outline: 0;
-  background: url('images/controls.png') -86px -11px no-repeat;
+  background: url("images/controls.png") -86px -11px no-repeat;
   margin: 0 3px;
 }
-.bx-wrapper .bx-controls-auto .bx-start:hover,
-.bx-wrapper .bx-controls-auto .bx-start.active,
-.bx-wrapper .bx-controls-auto .bx-start:focus {
+/* line 89, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-start:hover, .mb-wrapper .mb-controls-auto .mb-start.active, .mb-wrapper .mb-controls-auto .mb-start:focus {
   background-position: -86px 0;
 }
-.bx-wrapper .bx-controls-auto .bx-stop {
+/* line 95, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-stop {
   display: block;
   text-indent: -9999px;
   width: 9px;
   height: 11px;
   outline: 0;
-  background: url('images/controls.png') -86px -44px no-repeat;
+  background: url("images/controls.png") -86px -44px no-repeat;
   margin: 0 3px;
 }
-.bx-wrapper .bx-controls-auto .bx-stop:hover,
-.bx-wrapper .bx-controls-auto .bx-stop.active,
-.bx-wrapper .bx-controls-auto .bx-stop:focus {
+/* line 103, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-stop:hover, .mb-wrapper .mb-controls-auto .mb-stop.active, .mb-wrapper .mb-controls-auto .mb-stop:focus {
   background-position: -86px -33px;
 }
+
 /* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
-.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+/* line 116, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls.mb-has-controls-auto.mb-has-pager .mb-pager {
   text-align: left;
   width: 80%;
 }
-.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+/* line 120, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls.mb-has-controls-auto.mb-has-pager .mb-controls-auto {
   right: 0;
   width: 35px;
-}
-/* IMAGE CAPTIONS */
-.bx-wrapper .bx-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #666;
-  background: rgba(80, 80, 80, 0.75);
-  width: 100%;
-}
-.bx-wrapper .bx-caption span {
-  color: #fff;
-  font-family: Arial;
-  display: block;
-  font-size: .85em;
-  padding: 10px;
 }

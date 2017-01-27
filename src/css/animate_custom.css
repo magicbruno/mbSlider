@@ -87,6 +87,18 @@ body {
   animation-duration: 3s;
 }
 
+/* line 80, ../sass/helpers/_base.scss */
+.flippedY {
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 83, ../sass/helpers/_base.scss */
+.flippedX {
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
 /* line 1, ../sass/helpers/_delay.scss */
 .in .animated {
   -webkit-animation-delay: 0.5s;
@@ -1276,6 +1288,42 @@ body {
   animation-name: rotateIn;
 }
 
+@-webkit-keyframes rotateInBig {
+  0% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: rotate(-1000deg) scale(0.1, 0.1);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: rotate(0) scale(1, 1);
+    opacity: 1;
+  }
+}
+@keyframes rotateInBig {
+  0% {
+    transform-origin: center center;
+    transform: rotate(-800deg) scale(0.1, 0.1);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform-origin: center center;
+    transform: rotate(0) scale(1, 1);
+    opacity: 1;
+  }
+}
+/* line 39, ../sass/animations/rotate-enter/_rotateInBig.scss */
+.in .rotateInBig {
+  -webkit-animation-name: rotateInBig;
+  animation-name: rotateInBig;
+}
+
 @-webkit-keyframes rotateInDownLeft {
   0% {
     -webkit-transform-origin: left bottom;
@@ -1801,7 +1849,7 @@ body {
 @-webkit-keyframes rollIn {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%) rotate(-120deg);
+    -webkit-transform: translateX(-150%) rotate(-180deg);
   }
   100% {
     opacity: 1;
@@ -1811,15 +1859,15 @@ body {
 @keyframes rollIn {
   0% {
     opacity: 0;
-    transform: translateX(-100%) rotate(-120deg);
+    transform: translateX(-150%) rotate(-180deg);
   }
   100% {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
   }
 }
-/* line 15, ../sass/animations/special/_rollIn.scss */
-.in .rollIn {
+/* line 24, ../sass/animations/special/_rollIn.scss */
+.in .rollIn, .in .rollInleft {
   -webkit-animation-name: rollIn;
   animation-name: rollIn;
 }
@@ -1831,7 +1879,7 @@ body {
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(100%) rotate(120deg);
+    -webkit-transform: translateX(150%) rotate(180deg);
   }
 }
 @keyframes rollOut {
@@ -1841,11 +1889,11 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translateX(100%) rotate(120deg);
+    transform: translateX(150%) rotate(180deg);
   }
 }
-/* line 29, ../sass/animations/special/_rollOut.scss */
-.out .rollOut {
+/* line 24, ../sass/animations/special/_rollOut.scss */
+.out .rollOut, .out .rollOutRight {
   -webkit-animation-name: rollOut;
   animation-name: rollOut;
 }

@@ -1,20 +1,18 @@
-#bxSlider 4.2.5
-##The fully-loaded, responsive jQuery content slider
+#mbSlider 1.0.0
+####A flexibile slider system to create animated presentations.
+Based on bxSlider by by: Steven Wanderski - [http://stevenwanderski.com](http://stevenwanderski.com)
 
 ###Why should I use this slider?
+* Define timing for every slide 
+* Define in (entering) and out (exiting) animations for every HTML element in the slide
 * Fully responsive - will adapt to any device
 * Horizontal, vertical, and fade modes
-* Slides can contain images, video, or HTML content
-* Full callback API and public methods
-* Small file size, fully themed, simple to implement
-* Browser support: Firefox, Chrome, Safari, iOS, Android, IE7+
+* Slides can contain any HTML content
+* Callback API and public methods
+* Browser support: Modern Browser with fall back for ie8 and ie9.
 * Tons of configuration options
 
-For complete documentation, tons of examples, and a good time, visit:
-
-[http://bxslider.com](http://bxslider.com)
-
-Written by: Steven Wanderski - [http://stevenwanderski.com](http://stevenwanderski.com)
+For complete documentation visit:
 
 ###License
 Released under the MIT license - http://opensource.org/licenses/MIT
@@ -23,40 +21,106 @@ Let's get on with it!
 
 ##Installation
 
-###Step 1: Link required files
-
-First and most important, the jQuery library needs to be included (no need to download - link directly from Google). Next, download the package from this site and link the bxSlider CSS file (for the theme) and the bxSlider Javascript file.
+First and most important, the jQuery library needs to be included (no need to download - link directly from Google). Next, download the package from this site and link the mbSlider CSS file (for the theme) and the mbSlider Javascript file.
 
 ```html
 <!-- jQuery library (served from Google) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- bxSlider Javascript file -->
-<script src="/js/jquery.bxslider.min.js"></script>
-<!-- bxSlider CSS file -->
-<link href="/lib/jquery.bxslider.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- mbSlider Javascript file -->
+<script src="/mbslider/jquery.mbslider.min.js"></script>
+<!-- mbSlider CSS file -->
+<link href="/mbslider/jquery.mbslider.css" rel="stylesheet" />
 ```
 
-###Step 2: Create HTML markup
-
-Create a `<ul class="bxslider">` element, with a `<li>` for each slide. Slides can contain images, video, or any other HTML content!
+##Use
+Create a `<ul class="mbslider">` element, with a `<li>` for each slide. Slides can contain images, video, or any other HTML content!
 
 ```html
-<ul class="bxslider">
+<ul class="mbslider">
   <li><img src="/images/pic1.jpg" /></li>
   <li><img src="/images/pic2.jpg" /></li>
   <li><img src="/images/pic3.jpg" /></li>
   <li><img src="/images/pic4.jpg" /></li>
 </ul>
 ```
-
-###Step 3: Call the bxSlider
-
-Call .bxSlider() on `<ul class="bxslider">`. Note that the call must be made inside of a $(document).ready() call, or the plugin will not work!
+Call .mbSlider() on `<ul class="mbslider">`. Note that the call must be made inside of a $(document).ready() call, or the plugin will not work!
 
 ```javascript
 $(document).ready(function(){
-  $('.bxslider').bxSlider();
+  $('.mbslider').mbSlider();
 });
+```
+You can animate any single HTML element inside a slide simply assigning to it some classes.
+
+###General class
+To every animated element you must assign the class `animated`.This class set general behaviors to animated elements.
+###Animation classes
+Then you must:
+* Assign a class for enter animation that have the "In" suffix or infix (`fadeIn, flipInX, rotateIn, slideInUp`, etc.)
+* Assign a class for exit animation that have the "Out" suffix or infix (`fadeOut, flipInX, rotateIn, slideInUp`, etc.)
+
+**Available enter animation classes**: `fadeIn, fadeInUp, fadeInUpBig, fadeInDown, fadeInDownBig, fadeInLeft, fadeInLeftBig, fadeInRight, fadeInRightBig, bounceIn, bounceInUp, bounceInDown, bounceInLeft, bounceInRight, rotateIn, rotateInUpLeft, rotateInUpRight, rotateInDownLeft, rotateInDownRight, slideIn, slideInUp, slideInDown, slideInLeft, slideInRight, flipInX, flipOutX, lightSpeedIn, rollIn, zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp`
+
+**Available exit animation classes**: `fadeOut, fadeOutUp, fadeOutUpBig, fadeOutDown, fadeOutDownBig, fadeOutLeft, fadeOutLeftBig, fadeOutRight, fadeOutRightBig, bounceOut, bounceOutUp, bounceOutDown, bounceOutLeft, bounceOutRight, rotateOut, rotateOutUpLeft, rotateOutUpRight, rotateOutDownLeft, rotateOutDownRight, slideOut, slideOutUp, slideOutDown, slideOutLeft, slideOutRight, flipOutX, flipOutX, lightSpeedOut, hingeOut, rollOut, zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp`
+
+###Modifier classes
+* **Delay**: Animations has a base delay of 0.5 seconds (500 ms). You can use delayInXXXX and delayOutXXXX classes (where XXXX is 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000) to delay in and/or out animation and create temporized animation sequences.
+* **Speed**: Animations has a base speed of 1 second. You can modify animation speed using `slowIn, slowOut, fastIn, fastOut, xslowIn, xslowOut` classes.
+
+###Slide show Example
+Here's a simple slide show. 
+
+```HTML
+  .......
+    <ul class="mbSlider fade">
+      <li id='slide_24' class="out">
+        <h1>
+          <img alt="" class="img-responsive center-block animated delay1000 flipInX hingeOut" src="/img/LogoWinstrap.png" />
+        </h1>
+        <h3 class="text-center animated bounceInRight bounceOutLeft">
+          Sample animations: flip
+        </h3> 
+      </li>
+      <li id='slide_29' class="out">
+        <h1>
+          <img alt="" class="img-responsive center-block animated delay1000 zoomIn zoomOut" src="{{assets}}/img/LogoWinstrap.png" />
+        </h1>
+        <h3 class="text-center animated bounceInRight bounceOutLeft">
+          Sample animations: zoom
+        </h3> 
+      </li>
+      <li id='slide_31' class="out">
+        <h1>
+          <img alt="" class="img-responsive center-block animated delay1000 rotateIn rotateOut" src="{{assets}}/img/LogoWinstrap.png" />
+        </h1>
+        <h3 class="text-center animated bounceInRight bounceOutLeft">
+          Sample animations: rotate
+        </h3> 
+      </li>
+    </ul>
+  .....
+```
+Animated slide show needs few more settings.
+
+```
+  <script>
+    $(function() {
+      var slider = $('.mbSlider');
+      slider.mbSlider({
+        animatedSlides: true, // Animate single elements
+        auto: true,           // Timed slide show
+        pause: 10000,         // Pause between slides
+        pauseBeforeOut: 2000, // Pause that allow exit completion
+        pager: false,         // No controls
+        controls: false,
+        onSliderLoad: function(currentIndex) {
+          setTimeout(function() {
+            slider.removeClass('fade');
+          }, 2000);
+        }
+      });
+    })
+  </script>
 ```
 
 ##Configuration options
@@ -99,7 +163,7 @@ options: boolean (true / false)
 ```
 
 **slideSelector**
-Element to use as slides (ex. <code>'div.slide'</code>).<br />Note: by default, bxSlider will use all immediate children of the slider element
+Element to use as slides (ex. <code>'div.slide'</code>).<br />Note: by default, mbSlider will use all immediate children of the slider element
 ```
 default: ''
 options: jQuery selector
@@ -225,7 +289,7 @@ options: boolean (true / false)
 ```
 
 **wrapperClass**
-Class to wrap the slider in. Change to prevent from using default bxSlider styles.
+Class to wrap the slider in. Change to prevent from using default mbSlider styles.
 ```
 default: 'bx-wrapper'
 options: string
@@ -269,7 +333,7 @@ options: jQuery selector
 ```
 
 **buildPager**
-If supplied, function is called on every slide element, and the returned value is used as the pager item markup.<br />See <a href="http://bxslider.com/examples">examples</a> for detailed implementation
+If supplied, function is called on every slide element, and the returned value is used as the pager item markup.<br />See <a href="http://mbslider.com/examples">examples</a> for detailed implementation
 ```
 default: null
 options: function(slideIndex)
@@ -353,7 +417,31 @@ Enable keyboard navigation for visible sliders
 default: false
 options: boolean (true / false)
 ```
+###Animations
 
+**animatedSlides**
+
+Is set to true enterig and exiting slides transitions are handled by managing sigle slide elements animations. If animatedSlides is set to false `pauseBeforeOut` and `pauseAfterIn` values are ignored.  
+```
+default: false
+options: boolean
+```
+
+**pauseBeforeOut**
+
+Pause before slide change in milliseconds. It allows out animation completion before the next slide enter. It works both in auto mode and in manual mode. 
+```
+default: 1000
+options: integer
+```
+
+**pauseAfterIn**
+
+Pause added to slide pause in milliseconds. For every slide you may define a pause for in animation completion an a pause for slide reading. It works both in auto mode and in manual mode. 
+```
+default: 0
+options: integer
+```
 ###Auto
 
 **auto**
@@ -535,7 +623,7 @@ arguments:
 Performs a slide transition to the supplied slide index (zero-based)
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.goToSlide(3);
 ```
 
@@ -543,7 +631,7 @@ slider.goToSlide(3);
 Performs a "Next" slide transition
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.goToNextSlide();
 ```
 
@@ -551,7 +639,7 @@ slider.goToNextSlide();
 Performs a "Prev" slide transition
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.goToPrevSlide();
 ```
 
@@ -559,7 +647,7 @@ slider.goToPrevSlide();
 Starts the auto show. Provide an argument <code>false</code> to prevent the auto controls from being updated.
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.startAuto();
 ```
 
@@ -567,7 +655,7 @@ slider.startAuto();
 Stops the auto show. Provide an argument <code>false</code> to prevent the auto controls from being updated.
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.stopAuto();
 ```
 
@@ -575,7 +663,7 @@ slider.stopAuto();
 Returns the current active slide
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 var current = slider.getCurrentSlide();
 ```
 
@@ -583,7 +671,7 @@ var current = slider.getCurrentSlide();
 Returns the total number of slides in the slider
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 var slideQty = slider.getSlideCount();
 ```
 
@@ -591,7 +679,7 @@ var slideQty = slider.getSlideCount();
 Redraw the slider. Useful when needing to redraw a hidden slider after it is unhidden.
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.redrawSlider();
 ```
 
@@ -599,7 +687,7 @@ slider.redrawSlider();
 Reload the slider. Useful when adding slides on the fly. Accepts an optional settings object. <a href="/examples/reload-slider-settings">See here for an example.</a>
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.reloadSlider();
 ```
 
@@ -607,7 +695,7 @@ slider.reloadSlider();
 Destroy the slider. This reverts all slider elements back to their original state (before calling the slider).
 ```
 example:
-slider = $('.bxslider').bxSlider();
+slider = $('.mbslider').mbSlider();
 slider.destroySlider();
 ```
 
@@ -625,124 +713,10 @@ When completed, you'll be able to run the various Grunt commands provided from t
 
 ### Available Grunt commands
 
-* `grunt` — Clean, Compile LESS to CSS, concatenate and validate JS, build documentation.
-* `grunt dist` — Clean, Compile LESS to CSS, concatenate and validate JS for plugin only.
+* `grunt` — Clean, Compile LESS to CSS, compile SCSS to CSS with compass,  concatenate and validate JS, build documentation.
+* `grunt dist` — Clean, Compile LESS to CSS, compile SCSS to CSS with compass, concatenate and validate JS for plugin only.
 * `grunt docs` — Clean, build documentation only.
 * `grunt watch` — loads LiveReload, connects, and watches all assets.
 * `grunt zip` — Creates a zip of `/dist` and places it in `/download`.
+* `grunt jscs-check` - Check js style with jscs
 
-## Contributing
-
-Everyone is welcome to help [contribute](CONTRIBUTING.md) and improve this project. There are several ways you can contribute:
-
-* Reporting issues (please read [issue guidelines](https://github.com/necolas/issue-guidelines))
-* Suggesting new features
-* Writing or refactoring code
-* Fixing [issues](https://github.com/roots/roots/issues)
-
-## Changelog
-
-### Version 4.2.5
-* Fix: Vertical carousel minSlides not working #840
-* Fix: slider breaks with css animations if settings.speed set to 0 #838
-* Fix: Slider runs into undefined state when reloadSlider is called before initialization was finished #833
-
-### Version 4.2.4
-NOTICE: We have switched to a Grunt based build process in order to leverage [Assemble](http://assemble.io) for local documentation building. Please review the above notes about Grunt for the commands available. 
-
-* Fix: Fixed transition from first to last slide during infinite loop #778
-* Fix: Reload on multiple sliders doesn't work? #755
-* Fix: bxSlider with text only #746
-* Fix: bower missing main and ignore entries #738
-* Fix: Tickermode transitionend event bubbling #737
-* Fix: Initializing before destroyed breaks slider #748
-* Enhancement: Added shrinkItems carousel setting #772
-* Enhancement: Maintain auto display of slides after a manual selection #594
-* Enhancement: Slider getter through jquery object #739
-* Enhancement: Add aria attributes #751
-* Enhancement: Slider element in every callback and a new method getSliderElement (#780)
-* Enhancement: Local Documentiation and examples. I have added buildable documentation to the repo. This will expand over time and allow for community corrections as needed. Please see above Grunt notes on how to build. 
-
-
-### Version 4.2.3
-* Minor bug fix
-
-### Version 4.2.2
-* Fix: Remove unused plugin variable (#733)
-* Fix: `updateAfterSlideTransition` not being called (#704)
-* Fix: Slider stops auto advancing (#702)
-* Fix: Refresh page, slider show the last item at the first in mode: 'horizontal' (#694)
-* Fix: horizintal ticker stutters on loop (#669)
-* Fix: Wrong bx-wrapper bottom margin with controls=true and pager=false (#647)
-* Fix: add css tickerHover. (#629)
-* Fix: Slider refusing to scale down, only up (#611)
-* Fix: bxSlider freezes on touch devices (#540)
-* Fix: Multiple fixes and improvements for Windows Mobile Devices (#596)
-* Fix: Accessing bxslider's slider object inside its “onSliderLoad” callback returns undefined (#475)
-* Fix: infiniteLoop glitch when scrolling from first to last slide (#429)
-* Enhancement: Cancel transitions on callbacks by returning false. (#411)
-* Enhancement: Added Keyboard arrow left and right support (#239)
-
-### Version 4.2.1
-* Fix: Merge Conflict in dist
-* Fix: modified bower.json
-
-### Version 4.2.0
-* Fix: Reverse #714, fixes #722.
-* Fix: Repo Tag #729
-* Fix: #720 pagerCustom issues
-
-4.2.0 Introduces a streamlined build process using [gulp](www.gulpjs.com). Along with this new build process the projects folder structure has been changed. You will find a `dist` folder with all assets ready to use, including both minified and unminified versions of the javascript. These assets should be ready to go. In `src` you will find the uncompiled assets, including a new less version of the css for bxslider. This is an important step for bxslider. It will help speed development up and keep work clean. It also paves the way for a big revamp we have planned in the future.
-
-**Unfamiliar with npm? Don't have node installed?** [Download and install node.js](http://nodejs.org/download/) before proceeding.
-
-From the command line:
-
-1. Install [gulp](http://gulpjs.com) globally with `npm install -g gulp`
-2. Navigate to the project directory, then run `npm install`
-
-You now have all the necessary dependencies to run the build process.
-
-### Available gulp commands
-
-* `gulp` — Compile and optimize all files to `dist`
-* `gulp styles` — Compile css assets only to `dist`
-* `gulp scripts` — Compile js assets only to `dist`
-* `gulp images` - Run lossless compression on all the images and copy to `dist`
-* `gulp jshint` — Checks JS and JSON code for errors based on our .jshintrc settings
-
-
-### Version 4.1.3
-* Fix: responsive issue for horizontal mode for issue #611, #714
-* Fix: extra space on the left when using fade mode. #715
-* Fix: wrongly removing custom pager in destroySlider #610
-* Fix: bug with reloading slider with custom pager #545
-* Fix: Issue with infinite scroll sometimes returning to 0 #481
-* Fix: When "infiniteLoop" is used, true is not passed to a clone method. #346
-* Fix: "pagerCustom" won't work when using reloadSlider #171
-* Fix: Remove vendor prefix for translateZ(0) #565
-* Fix: give styles on focus for accessibility #228
-* Fix: Minified Version out of sync.
-* Fix: Remove -5px left #517
-* Enhancement: Invert order call of appendControls() and appendPager() #226
-* Enhancement: Various Indentation and typos in docs fixed. #551, #578
-* Enhancement: Update jsDelivr with update.json for autoupdate of CDN
-* Enhancement: Tag Repo so it can be included in CDNJS
-* Created development branch to work from. Eventually will restructure entire repo to follow best practice setup.
-
-
-### Version 4.1.2
-* Added `bower.json` configuration file. Manage bxSlider as a dependency using [bower](http://bower.io/).
-
-### Version 4.1.1
-* Removed imagesLoaded library and added iframe preloading support
-* Added responsive option - setting to false will prevent $(window).resize binding
-
-### Version 4.1
-* Carousel mode (minSlides / maxSlides) was re-written to be more intuitive.
-* SlideWidth now acts as it should (slides respect the width value).
-* SlideWidth now properly parsed: accepts string ("600px") or integer (600).
-* Slider now only needs to load visible slides (by default) in order to initialize which results in much faster loading. A "preloadImages" setting allows for configuration.
-
-
-Long live Zep.

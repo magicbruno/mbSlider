@@ -1,0 +1,126 @@
+/* PAGER */
+
+.mb-wrapper {
+  .mb-pager {
+    text-align: center;
+    font-size: .85em;
+    font-family: Arial;
+    font-weight: bold;
+    color: #666;
+    padding-top: 20px;
+    &.mb-default-pager a {
+      background: #666;
+      text-indent: -9999px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      outline: 0;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      &:hover,
+      &.active,
+      &:focus {
+        background: #000;
+      }
+    }
+  }
+  .mb-pager-item,
+  .mb-controls-auto .mb-controls-auto-item {
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+  }
+  .mb-pager-item {
+    font-size: 0;
+    line-height: 0;
+  }
+}
+
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+
+.mb-wrapper {
+  .mb-prev {
+    left: 10px;
+    background: url($controls) no-repeat 0 -32px;
+    &:hover,
+    &:focus {
+      background-position: 0 0;
+    }
+  }
+  .mb-next {
+    right: 10px;
+    background: url($controls) no-repeat -43px -32px;
+    &:hover,
+    &:focus {
+      background-position: -43px 0;
+    }
+  }
+  .mb-controls-direction a {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    outline: 0;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    z-index: 9999;
+    &.disabled {
+      display: none;
+    }
+  }
+}
+
+
+/* AUTO CONTROLS (START / STOP) */
+
+.mb-wrapper .mb-controls-auto {
+  text-align: center;
+  .mb-start {
+    display: block;
+    text-indent: -9999px;
+    width: 10px;
+    height: 11px;
+    outline: 0;
+    background: url($controls) -86px -11px no-repeat;
+    margin: 0 3px;
+    &:hover,
+    &.active,
+    &:focus {
+      background-position: -86px 0;
+    }
+  }
+  .mb-stop {
+    display: block;
+    text-indent: -9999px;
+    width: 9px;
+    height: 11px;
+    outline: 0;
+    background: url($controls) -86px -44px no-repeat;
+    margin: 0 3px;
+    &:hover,
+    &.active,
+    &:focus {
+      background-position: -86px -33px;
+    }
+  }
+}
+
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+
+.mb-wrapper {
+  .mb-controls.mb-has-controls-auto.mb-has-pager {
+    .mb-pager {
+      text-align: left;
+      width: 80%;
+    }
+    .mb-controls-auto {
+      right: 0;
+      width: 35px;
+    }
+  }
+}
+

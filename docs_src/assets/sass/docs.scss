@@ -1,9 +1,9 @@
-@import "bootstrap"; 
+@import "bootstrap-compass";
+$font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
+$navbar-height: 60px;
+$navbar-default-bg: #e0e0e0;
 
-@font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
-@navbar-height: 80px;
-@navbar-default-bg: #e0e0e0;
-
+@import "bootstrap";
 
 // Sticky Footer
 // --------------------
@@ -13,8 +13,6 @@ html, body {
 }
 .wrapper {
 	min-height: 100%;
-	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
-	height: 100%;
 	margin: 0 auto -211px; /* the bottom margin is the negative value of the footer's height */
 }
 
@@ -29,14 +27,18 @@ footer, .push {
 	padding: 10px 15px;
   img {
     max-height: 100%;
+    width: auto;
   }
+}
+.navbar-inverse {
+  background-color: darkslateblue;
 }
 
 // UI
 // --------------------
 
 .btn-outline {
-	.button-variant(#5280dd, transparent, #5280dd);
+	@include button-variant(#5280dd, transparent, #5280dd);
 	border-width: 3px;
 }
 

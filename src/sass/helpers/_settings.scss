@@ -84,18 +84,18 @@ $use-fadeOutRightBig	:	$use-fade-out !default;
 
 
 // Bounce Enter
-$use-bounce-in          :   $use-bounce !default;
-$use-bounceIn			:	$use-bounce-in !default;
-$use-bounceInUp			: 	$use-bounce-in !default;
+$use-bounce-in        :   $use-bounce !default;
+$use-bounceIn			    :	$use-bounce-in !default;
+$use-bounceInUp			  : 	$use-bounce-in !default;
 $use-bounceInDown 		: 	$use-bounce-in !default;
 $use-bounceInLeft 		: 	$use-bounce-in !default;
 $use-bounceInRight 		: 	$use-bounce-in !default;
 
 
 // Bounce Exit
-$use-bounce-out         :   $use-bounce !default;
-$use-bounceOut			:	$use-bounce-out !default;
-$use-bounceOutUp		: 	$use-bounce-out !default;
+$use-bounce-out       :   $use-bounce !default;
+$use-bounceOut			  :	$use-bounce-out !default;
+$use-bounceOutUp		  : 	$use-bounce-out !default;
 $use-bounceOutDown 		: 	$use-bounce-out !default;
 $use-bounceOutLeft 		: 	$use-bounce-out !default;
 $use-bounceOutRight 	: 	$use-bounce-out !default;
@@ -104,25 +104,27 @@ $use-bounceOutRight 	: 	$use-bounce-out !default;
 
 // Rotate Enter
 $use-rotate-in          :   $use-rotate !default;
-$use-rotateIn 			:	$use-rotate-in !default;
-$use-rotateInUpLeft 	: 	$use-rotate-in !default;
-$use-rotateInUpRight 	: 	$use-rotate-in !default;
+$use-rotateIn 			    :	$use-rotate-in !default;
+$use-rotateInBig 			  :	$use-rotate-in !default;
+$use-rotateInUpLeft 	  : 	$use-rotate-in !default;
+$use-rotateInUpRight 	  : 	$use-rotate-in !default;
 $use-rotateInDownLeft 	: 	$use-rotate-in !default;
 $use-rotateInDownRight 	: 	$use-rotate-in !default;
 
 
 // Rotate Exit
 $use-rotate-out         :   $use-rotate !default;
-$use-rotateOut 			:	$use-rotate-out !default;
-$use-rotateOutUpLeft 	: 	$use-rotate-out !default;
+$use-rotateOut 			    :	$use-rotate-out !default;
+$use-rotateOutBig 			:	$use-rotate-out !default;
+$use-rotateOutUpLeft 	  : 	$use-rotate-out !default;
 $use-rotateOutUpRight 	: 	$use-rotate-out !default;
 $use-rotateOutDownLeft 	: 	$use-rotate-out !default;
 $use-rotateOutDownRight : 	$use-rotate-out !default;
 
 
 // Slide Enter
-$use-slide-in           :   $use-slide !default;
-$use-slideIn			:   $use-slide-in !default;
+$use-slide-in       :   $use-slide !default;
+$use-slideIn  			:   $use-slide-in !default;
 $use-slideInUp			:   $use-slide-in !default;
 $use-slideInDown		:   $use-slide-in !default;
 $use-slideInLeft		:   $use-slide-in !default;
@@ -156,7 +158,7 @@ $use-pulse				:	$use-attention-seekers !default;
 $use-wiggle				:	$use-attention-seekers !default;
 $use-swing				:	$use-attention-seekers !default;
 $use-shake				:	$use-attention-seekers !default;
-$use-tada				:	$use-attention-seekers !default;
+$use-tada 				:	$use-attention-seekers !default;
 $use-wobble				:	$use-attention-seekers !default;
 
 
@@ -164,6 +166,8 @@ $use-wobble				:	$use-attention-seekers !default;
 $use-hinge				:	$use-special !default;
 $use-rollIn				: 	$use-special !default;
 $use-rollOut 			:	$use-special !default;
+$use-rollInRight	: 	$use-special !default;
+$use-rollOutLeft	:	$use-special !default;
 
 
 // Zoom In

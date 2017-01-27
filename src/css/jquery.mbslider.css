@@ -1,0 +1,198 @@
+/** VARIABLES
+===================================*/
+/** RESET AND LAYOUT
+===================================*/
+/* line 4, ../sass/mbslider/_layout.scss */
+.mb-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+/* line 11, ../sass/mbslider/_layout.scss */
+.mb-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 17, ../sass/mbslider/_layout.scss */
+.mbslider {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 22, ../sass/mbslider/_layout.scss */
+ul.mbslider {
+  list-style: none;
+}
+
+/* line 26, ../sass/mbslider/_layout.scss */
+.mb-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+}
+
+/* LOADER */
+/* line 34, ../sass/mbslider/_layout.scss */
+.mb-wrapper .mb-loading {
+  min-height: 50px;
+  background: url("images/bx_loader.gif") center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/** THEME
+===================================*/
+/* line 10, ../sass/mbslider/_theme.scss */
+.mb-wrapper .mb-pager,
+.mb-wrapper .mb-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* IMAGE CAPTIONS */
+/* line 20, ../sass/mbslider/_theme.scss */
+.mb-wrapper .mb-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+/* line 27, ../sass/mbslider/_theme.scss */
+.mb-wrapper .mb-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+
+/* PAGER */
+/* line 4, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+/* line 11, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager.mb-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 22, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager.mb-default-pager a:hover, .mb-wrapper .mb-pager.mb-default-pager a.active, .mb-wrapper .mb-pager.mb-default-pager a:focus {
+  background: #000;
+}
+/* line 29, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager-item,
+.mb-wrapper .mb-controls-auto .mb-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+/* line 35, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-pager-item {
+  font-size: 0;
+  line-height: 0;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+/* line 45, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-prev {
+  left: 10px;
+  background: url("images/controls.png") no-repeat 0 -32px;
+}
+/* line 48, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-prev:hover, .mb-wrapper .mb-prev:focus {
+  background-position: 0 0;
+}
+/* line 53, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-next {
+  right: 10px;
+  background: url("images/controls.png") no-repeat -43px -32px;
+}
+/* line 56, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-next:hover, .mb-wrapper .mb-next:focus {
+  background-position: -43px 0;
+}
+/* line 61, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+/* line 70, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+/* line 79, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto {
+  text-align: center;
+}
+/* line 81, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url("images/controls.png") -86px -11px no-repeat;
+  margin: 0 3px;
+}
+/* line 89, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-start:hover, .mb-wrapper .mb-controls-auto .mb-start.active, .mb-wrapper .mb-controls-auto .mb-start:focus {
+  background-position: -86px 0;
+}
+/* line 95, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url("images/controls.png") -86px -44px no-repeat;
+  margin: 0 3px;
+}
+/* line 103, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls-auto .mb-stop:hover, .mb-wrapper .mb-controls-auto .mb-stop.active, .mb-wrapper .mb-controls-auto .mb-stop:focus {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+/* line 116, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls.mb-has-controls-auto.mb-has-pager .mb-pager {
+  text-align: left;
+  width: 80%;
+}
+/* line 120, ../sass/mbslider/_controls.scss */
+.mb-wrapper .mb-controls.mb-has-controls-auto.mb-has-pager .mb-controls-auto {
+  right: 0;
+  width: 35px;
+}

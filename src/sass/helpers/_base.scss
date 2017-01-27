@@ -77,3 +77,9 @@ body {
     }
   }
 }
+.flippedY {
+  @include animate-prefixer(transform,  scale(1,-1));
+}
+.flippedX {
+  @include animate-prefixer(transform,   scale(-1,1));
+}

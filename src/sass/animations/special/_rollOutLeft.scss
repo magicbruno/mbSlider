@@ -1,28 +1,28 @@
-@if $use-rollOut==true {
+@if $use-rollOutLeft==true {
   // originally authored by Nick Pettit - https://github.com/nickpettit/glide
-  @-webkit-keyframes rollOut {
+  @-webkit-keyframes rollOutLeft {
     0% {
       opacity: 1;
       -webkit-transform: translateX(0px) rotate(0deg);
     }
     100% {
       opacity: 0;
-      -webkit-transform: translateX(150%) rotate($base-degrees * 6);
+      -webkit-transform: translateX(-150%) rotate(-$base-degrees * 6);
     }
   }
-  @keyframes rollOut {
+  @keyframes rollOutLeft {
     0% {
       opacity: 1;
       transform: translateX(0px) rotate(0deg);
     }
     100% {
       opacity: 0;
-      transform: translateX(150%) rotate($base-degrees * 6);
+      transform: translateX(-150%) rotate(-$base-degrees * 6);
     }
   }
   .out {
-    .rollOut, .rollOutRight {
-      @include animate-prefixer(animation-name, rollOut);
+    .rollOutLeft {
+      @include animate-prefixer(animation-name, rollOutLeft);
     }
   }
 }

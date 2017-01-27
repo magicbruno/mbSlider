@@ -1,5 +1,5 @@
 /**
- * bxSlider
+ * mbSlider
  *
  * Steven Wanderski
  *
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
           production: false,
           assets: '<%= app.docs.dest %>/assets',
           postprocess: require('pretty'),
-       //   mybaseDir: path.resolve('<%= app.docs.dest %>'),
+          //   mybaseDir: path.resolve('<%= app.docs.dest %>'),
           mybaseDir: '/<%= app.docs.dest %>',
 
           // metadata
@@ -94,22 +94,19 @@ module.exports = function(grunt) {
             '<%= app.docs.dest %>/assets/css/docs.min.css': '<%= app.docs.src %>/assets/less/docs.less'
           }
         },
+      },
+      compass: {
         dist: {
           options: {
-            compress: false
-          },
-          files: [{
-            expand: true,
-            flatten: true,
-            cwd: 'src/less/',
-            src: '*less',
-            dest: 'src/css/',
-            ext: '.css',
-            extDot: 'last'
-          }]
+            config: "config.rb"
+          }
+        },
+        docs: {
+          options: {
+            config: "config_docs.rb"
+          }
         }
       },
-
       // concat
       concat: {
         docs: {
@@ -132,7 +129,7 @@ module.exports = function(grunt) {
         },
         dist: {
           options: {
-            banner: '/**\n' + ' * bxSlider v<%= pkg.version %>\n' +
+            banner: '/**\n' + ' * mbSlider v<%= pkg.version %>\n' +
               ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
               ' * Written while drinking Belgian ales and listening to jazz\n\n' +
               ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' + ' */\n\n'
@@ -146,7 +143,7 @@ module.exports = function(grunt) {
 
       cssmin: {
         options: {
-          banner: '/**\n' + ' * bxSlider v<%= pkg.version %>\n' +
+          banner: '/**\n' + ' * mbSlider v<%= pkg.version %>\n' +
             ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
             ' * Written while drinking Belgian ales and listening to jazz\n\n' +
             ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' + ' */\n\n'
@@ -162,7 +159,7 @@ module.exports = function(grunt) {
       jshint: {
         options: {
           jshintrc: 'src/js/.jshintrc',
-          reporterOutput: ""
+          reporterOutput: ''
         },
         dist: {
           src: ['<%= app.src.scripts %>', 'Gruntfile.js']
@@ -170,21 +167,21 @@ module.exports = function(grunt) {
       },
 
       //jscs
-//      jscs: {
-//        options: {
-//          config: 'src/js/.jscsrc',
-//          reporter: 'text.js',
-//          reporterOutput: 'jscs.report.txt'
-//        },
-//        dist: {
-//          src: ['<%= app.src.scripts %>', 'Gruntfile.js']
-//        }
-//      },
+      jscs: {
+        options: {
+          config: 'src/js/.jscsrc',
+          reporter: 'text.js',
+          reporterOutput: 'jscs.report.txt'
+        },
+        dist: {
+          src: ['<%= app.src.scripts %>', 'Gruntfile.js']
+        }
+      },
 
       // uglify
       uglify: {
         options: {
-          banner: '/**\n' + ' * bxSlider v<%= pkg.version %>\n' +
+          banner: '/**\n' + ' * mbSlider v<%= pkg.version %>\n' +
             ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
             ' * Written while drinking Belgian ales and listening to jazz\n\n' +
             ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' + ' */\n\n'
@@ -218,14 +215,14 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'dist/',
           src: ['**/*.*'],
-          dest: '<%= app.docs.dest %>/assets/bxslider'
+          dest: '<%= app.docs.dest %>/assets/mbslider'
         },
 
         srcToDocs: {
           expand: true,
           cwd: 'src/js',
           src: ['**/*.js'],
-          dest: '<%= app.docs.dest %>/assets/bxslider/src'
+          dest: '<%= app.docs.dest %>/assets/mbslider/src'
         },
 
         docsAssets: {
@@ -300,13 +297,13 @@ module.exports = function(grunt) {
       compress: {
         zip: {
           options: {
-            archive: 'download/<%= pkg.version %>/bxslider.zip'
+            archive: 'download/<%= pkg.version %>/mbslider.zip'
           },
           files: [{
             expand: true,
             cwd: 'dist/',
             src: ['**'],
-            dest: 'bxslider.<%= pkg.version %>'
+            dest: 'mbslider.<%= pkg.version %>'
           }]
         }
       }
@@ -315,14 +312,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
 
   // tasks
-  grunt.registerTask('dist', ['clean:dist', 'less:dist', 'jshint:dist', 'concat:dist', 'cssmin:dist', 'copy:distImages', 'copy:distVendor', /*'jscs:dist',*/ 'uglify:dist', 'copy:readme']);
+  grunt.registerTask('dist', ['clean:dist', 'compass:dist', 'jshint:dist', 'concat:dist', 'cssmin:dist', 'copy:distImages', 'copy:distVendor', /*'jscs:dist',*/ 'uglify:dist', 'copy:readme']);
 
-  grunt.registerTask('docs', ['clean:docs', 'assemble', 'less:docs', 'concat:docs', 'copy:docsAssets', 'copy:docsHighlightAssets', 'copy:distToDocs']);
+  grunt.registerTask('docs', ['clean:docs', 'assemble', 'compass:docs', 'concat:docs', 'copy:docsAssets', 'copy:docsHighlightAssets', 'copy:distToDocs']);
 
   grunt.registerTask('default', ['dist', 'docs']);
 
   grunt.registerTask('watch', ['connect:docs', 'watch']);
 
   grunt.registerTask('zip', ['compress']);
+
+  grunt.registerTask('jscs-check', ['jscs:dist']);
 
 };

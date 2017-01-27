@@ -11,11 +11,11 @@
 		"dist":		"dist",
 
 		"scripts": [
-			"src/js/jquery.bxslider.js"
+			"src/js/jquery.mbslider.js"
 		]
 	},
 
-	"title": "bxSlider",
-	"download": "https://github.com/stevenwanderski/bxslider-4/archive/master.zip",
-	"donate": "http://www.bxslider.com"
+	"title": "mbSlider",
+	"download": "https://github.com/magicbruno/mbSlider/archive/master.zip",
+	"donate": "http://mbslider.magiccms.org"
 }

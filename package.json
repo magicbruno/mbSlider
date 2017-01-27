@@ -1,12 +1,12 @@
 {
-  "name": "bxslider",
-  "description": "Touch enabled jQuery plugin for creating responsive carousels and sliders.",
-  "version": "4.2.5",
-  "homepage": "http://bxslider.com",
+  "name": "mbSlider",
+  "description": "Touch enabled jQuery plugin for creating animated sliders. Based on bxslider by Steven Wanderski",
+  "version": "1.0.0",
+  "homepage": "http://mbslider.magiccms.org",
   "author": {
-    "name": "Steven Wanderski",
-    "email": "steven@bxcreative.com",
-    "url": "http://stevenwanderski.com"
+    "name": "Bruno Migliaretti",
+    "email": "bruno@magicbusmutlimedia.it",
+    "url": "http://brunomigliaretti.com"
   },
   "license": {
     "type": "MIT",
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stevenwanderski/bxslider-4/bxslider-4.git"
+    "url": "https://github.com/magicbruno/mbSlider"
   },
   "bugs": {
-    "url": "https://github.com/stevenwanderski/bxslider-4/issues"
+    "url": "https://github.com/magicbruno/mbSlider/issues"
   },
   "devDependencies": {
     "assemble": "~0.4.37",
@@ -35,7 +35,10 @@
     "grunt-contrib-jshint": "^0.10.0",
     "load-grunt-tasks": "^0.4.0",
     "pretty": "^0.1.2",
-    "handlebars-helpers": "~0.5.8"
+    "handlebars-helpers": "~0.5.8",
+    "grunt-contrib-compass": ">=1.1.1",
+    "vow": "~0.4.13",
+    "vow-fs": "~0.3.6"
   },
   "engines": {
     "node": "~0.10.28"
@@ -43,8 +46,9 @@
   "keywords": [
     "responsive",
     "carousel",
-    "bxslider",
+    "mbslider",
     "jQuery",
-    "plugin"
+    "plugin",
+    "animation"
   ]
 }
