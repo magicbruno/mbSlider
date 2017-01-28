@@ -10,7 +10,7 @@
         //var slider = $('#demoSlider').mbSlider();
         var slider = $('.mbslider');
         slider.mbSlider({
-          animatedSlides: true,
+          customAnimation: "slide",
           auto: true,
           pause: 8000,
           pauseBeforeOut: 2000,
@@ -33,6 +33,16 @@
     Basic: {
       init: function() {
         var slider = $('#demoSlider').mbSlider();
+      }
+    },
+    BasicAnimated: {
+      init: function() {
+        var slider = $('#demoSlider').mbSlider({
+          customAnimation: "static",
+          animatedSlides: true,
+          pauseBeforeOut: 0,
+          mode: "fade"
+        });
       }
     },
     Destroy: {
@@ -92,7 +102,8 @@
     Captions: {
       init: function() {
         var slider = $('#demoSlider').mbSlider({
-          captions: true
+          captions: true,
+          captionsCustomClass:'animated fadeInUp fadeOutDown'
         });
       }
     },
@@ -123,6 +134,16 @@
         var slider = $('#demoSlider').mbSlider({
           auto: true,
           autoControls: true
+        });
+      }
+    },
+    AutoAnimated: {
+      init: function() {
+        var slider = $('#demoSlider').mbSlider({
+          auto: true,
+          autoControls: true,
+          customAnimation: "slide",
+          pauseBeforeOut:1500
         });
       }
     },

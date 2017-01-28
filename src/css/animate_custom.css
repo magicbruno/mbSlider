@@ -101,109 +101,109 @@ body {
 
 /* line 1, ../sass/helpers/_delay.scss */
 .in .animated {
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 /* line 3, ../sass/helpers/_delay.scss */
 .in .animated.delay500, .in .animated.delayIn500 {
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 /* line 6, ../sass/helpers/_delay.scss */
 .in .animated.delay1, .in .animated.delay1000, .in .animated.delayIn1000 {
-  -webkit-animation-delay: 1.5s;
-  animation-delay: 1.5s;
-}
-/* line 9, ../sass/helpers/_delay.scss */
-.in .animated.delay1500, .in .animated.delayIn1500 {
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-}
-/* line 12, ../sass/helpers/_delay.scss */
-.in .animated.delay2, .in .animated.delay2000, .in .animated.delayIn2000 {
-  -webkit-animation-delay: 2.5s;
-  animation-delay: 2.5s;
-}
-/* line 15, ../sass/helpers/_delay.scss */
-.in .animated.delay2500, .in .animated.delayIn2500 {
-  -webkit-animation-delay: 3s;
-  animation-delay: 3s;
-}
-/* line 18, ../sass/helpers/_delay.scss */
-.in .animated.delay3, .in .animated.delay3000, .in .animated.delayIn3000 {
-  -webkit-animation-delay: 3.5s;
-  animation-delay: 3.5s;
-}
-/* line 21, ../sass/helpers/_delay.scss */
-.in .animated.delay3500, .in .animated.delayIn3500 {
-  -webkit-animation-delay: 4s;
-  animation-delay: 4s;
-}
-/* line 24, ../sass/helpers/_delay.scss */
-.in .animated.delay4, .in .animated.delay4000, .in .animated.delayIn4000 {
-  -webkit-animation-delay: 4.5s;
-  animation-delay: 4.5s;
-}
-/* line 27, ../sass/helpers/_delay.scss */
-.in .animated.delay4500, .in .animated.delayIn4500 {
-  -webkit-animation-delay: 5s;
-  animation-delay: 5s;
-}
-/* line 30, ../sass/helpers/_delay.scss */
-.in .animated.delay5, .in .animateddelay5000, .in .animateddelayIn5000 {
-  -webkit-animation-delay: 5.5s;
-  animation-delay: 5.5s;
-}
-
-/* line 37, ../sass/helpers/_delay.scss */
-.out .animated.delayOut500 {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 }
-/* line 40, ../sass/helpers/_delay.scss */
-.out .animated.delayOut1000 {
+/* line 9, ../sass/helpers/_delay.scss */
+.in .animated.delay1500, .in .animated.delayIn1500 {
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
-/* line 43, ../sass/helpers/_delay.scss */
-.out .animated.delayOut1500 {
+/* line 12, ../sass/helpers/_delay.scss */
+.in .animated.delay2, .in .animated.delay2000, .in .animated.delayIn2000 {
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-/* line 46, ../sass/helpers/_delay.scss */
-.out .animated.delayOut2000 {
+/* line 15, ../sass/helpers/_delay.scss */
+.in .animated.delay2500, .in .animated.delayIn2500 {
   -webkit-animation-delay: 2.5s;
   animation-delay: 2.5s;
 }
-/* line 49, ../sass/helpers/_delay.scss */
-.out .animated.delayOut2500 {
+/* line 18, ../sass/helpers/_delay.scss */
+.in .animated.delay3, .in .animated.delay3000, .in .animated.delayIn3000 {
   -webkit-animation-delay: 3s;
   animation-delay: 3s;
 }
-/* line 52, ../sass/helpers/_delay.scss */
-.out .animated.delayOut3000 {
+/* line 21, ../sass/helpers/_delay.scss */
+.in .animated.delay3500, .in .animated.delayIn3500 {
   -webkit-animation-delay: 3.5s;
   animation-delay: 3.5s;
 }
-/* line 55, ../sass/helpers/_delay.scss */
-.out .animated.delayOut3500 {
+/* line 24, ../sass/helpers/_delay.scss */
+.in .animated.delay4, .in .animated.delay4000, .in .animated.delayIn4000 {
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-/* line 58, ../sass/helpers/_delay.scss */
-.out .animated.delayOut4000 {
+/* line 27, ../sass/helpers/_delay.scss */
+.in .animated.delay4500, .in .animated.delayIn4500 {
   -webkit-animation-delay: 4.5s;
   animation-delay: 4.5s;
 }
-/* line 61, ../sass/helpers/_delay.scss */
-.out .animated.delayOut4500 {
+/* line 30, ../sass/helpers/_delay.scss */
+.in .animated.delay5, .in .animateddelay5000, .in .animateddelayIn5000 {
   -webkit-animation-delay: 5s;
   animation-delay: 5s;
 }
-/* line 64, ../sass/helpers/_delay.scss */
+
+/* line 36, ../sass/helpers/_delay.scss */
+.out .animated.delayOut500 {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+/* line 39, ../sass/helpers/_delay.scss */
+.out .animated.delayOut1000 {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+/* line 42, ../sass/helpers/_delay.scss */
+.out .animated.delayOut1500 {
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+/* line 45, ../sass/helpers/_delay.scss */
+.out .animated.delayOut2000 {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+/* line 48, ../sass/helpers/_delay.scss */
+.out .animated.delayOut2500 {
+  -webkit-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+/* line 51, ../sass/helpers/_delay.scss */
+.out .animated.delayOut3000 {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+/* line 54, ../sass/helpers/_delay.scss */
+.out .animated.delayOut3500 {
+  -webkit-animation-delay: 3.5s;
+  animation-delay: 3.5s;
+}
+/* line 57, ../sass/helpers/_delay.scss */
+.out .animated.delayOut4000 {
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+}
+/* line 60, ../sass/helpers/_delay.scss */
+.out .animated.delayOut4500 {
+  -webkit-animation-delay: 4.5s;
+  animation-delay: 4.5s;
+}
+/* line 63, ../sass/helpers/_delay.scss */
 .out .animateddelayOut5000 {
-  -webkit-animation-delay: 5.5s;
-  animation-delay: 5.5s;
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
 }
 
 @-webkit-keyframes bounce {
@@ -1472,6 +1472,36 @@ body {
 .out .rotateOut {
   -webkit-animation-name: rotateOut;
   animation-name: rotateOut;
+}
+
+@-webkit-keyframes rotateOutBig {
+  0% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: rotate(0) scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: rotate(800deg) scale(0.2, 0.2);
+    opacity: 0;
+  }
+}
+@keyframes rotateOutBig {
+  0% {
+    transform-origin: center center;
+    transform: rotate(0) scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform-origin: center center;
+    transform: rotate(800deg) scale(0.2, 0.2);
+    opacity: 0;
+  }
+}
+/* line 31, ../sass/animations/rotate-exit/_rotateOutBig.scss */
+.out .rotateOutBig {
+  -webkit-animation-name: rotateOutBig;
+  animation-name: rotateOutBig;
 }
 
 @-webkit-keyframes rotateOutDownLeft {

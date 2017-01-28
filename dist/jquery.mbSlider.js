@@ -19,6 +19,7 @@
     startSlide: 0,
     randomStart: false,
     captions: false,
+    captionsCustomClass: "",
     ticker: false,
     tickerHover: false,
     adaptiveHeight: false,
@@ -59,6 +60,7 @@
     autoControlsCombine: false,
     autoControlsSelector: null,
     // ANIMATIONS
+    customAnimation: false, // false | "static" | "slide"
     animatedSlides: false,
     pauseBeforeOut: 1000,
     pauseAfterIn: 0,
@@ -132,6 +134,28 @@
       }
       // merge user-supplied options with the defaults
       slider.settings = $.extend({}, defaults, options);
+
+      // Set animation custom option
+      if (slider.settings.customAnimation === true) {
+        slider.settings.customAnimation = "static";
+      }
+      if (slider.settings.customAnimation === "static") {
+        slider.settings.animatedSlides = true;
+        slider.settings.mode ="fade";
+      } else if (slider.settings.customAnimation === "slide") {
+        slider.settings.animatedSlides = true;
+        if (slider.settings.mode === "fade") {
+          slider.settings.mode = "horizontal";
+        }
+      } else if(slider.settings.customAnimation === false) {
+        slider.settings.animatedSlides = false;
+      } else {
+        slider.settings.animatedSlides = false;
+        console.warn('mbSlider warning!: "' + slider.settings.customAnimation +'" is not a customAnimation valid option.');
+      }
+      // slider.stopped initial value
+      slider.stopped = slider.settings.auto;
+
       // parse slideWidth setting
       slider.settings.slideWidth = parseInt(slider.settings.slideWidth);
       // store the original children
@@ -196,7 +220,7 @@
       // Animated slide settings
       if (slider.settings.animatedSlides) {
         slider.settings.speed = 10;
-        slider.settings.mode = 'horizontal';
+        //slider.settings.mode = 'horizontal';
       }
       // perform all DOM / CSS modifications
       setup();
@@ -262,17 +286,26 @@
       }
       // if "fade" mode, add positioning and z-index CSS
       if (slider.settings.mode === 'fade') {
-        slider.children.css({
-          position: 'absolute',
-          zIndex: 0,
-          display: 'none'
-        });
+        if (slider.settings.animatedSlides) {
+          slider.children.css({
+            position: 'absolute',
+            zIndex: 0
+          });
+        } else {
+          slider.children.css({
+            position: 'absolute',
+            zIndex: 0,
+            display: 'none'
+          });
+
+        }
         // prepare the z-index on the showing element
         slider.children.eq(slider.settings.startSlide).css({
           zIndex: slider.settings.slideZIndex,
           display: 'block'
         });
       }
+
       // Set animation class to 'out'
       slider.children.removeClass('in').addClass('out');
 
@@ -779,7 +812,11 @@
         var title = $(this).find('img:first').attr('title');
         // append the caption
         if (title !== undefined && ('' + title).length) {
-          $(this).append('<div class="mb-caption"><span>' + title + '</span></div>');
+          var $caption = $('<div class="mb-caption"><span>' + title + '</span></div>');
+          if (slider.settings.captionsCustomClass) {
+            $caption.addClass(slider.settings.captionsCustomClass);
+          }
+          $(this).append($caption);
         }
       });
     };
@@ -1398,7 +1435,7 @@
       slider.working = true;
       performTransition = slider.settings.onSlideBefore.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
       // If transitions canceled, reset and return
-      if (typeof (performTransition) !== 'undefined' && !performTransition) {
+      if (typeof(performTransition) !== 'undefined' && !performTransition) {
         slider.active.index = slider.oldIndex; // restore old index
         slider.working = false; // is not in motion
         return;
@@ -1433,14 +1470,24 @@
           }, slider.settings.adaptiveHeightSpeed);
         }
         // fade out the visible child and reset its z-index value
-        slider.children.filter(':visible').fadeOut(slider.settings.speed).css({
-          zIndex: 0
-        });
+        if (!slider.settings.animatedSlides) {
+          slider.children.filter(':visible').fadeOut(slider.settings.speed).css({
+            zIndex: 0
+          });
+          slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1).fadeIn(slider.settings.speed, function() {
+            $(this).css('zIndex', slider.settings.slideZIndex);
+            updateAfterSlideTransition();
+          });
+        } else {
+          // if animatedSlides is true
+          slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1);
+          setTimeout(function() {
+            slider.children.eq(slider.oldIndex).css({zIndex:0});
+            slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex);
+            updateAfterSlideTransition();
+          }, 1000);
+         }
         // fade in the newly requested slide
-        slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1).fadeIn(slider.settings.speed, function() {
-          $(this).css('zIndex', slider.settings.slideZIndex);
-          updateAfterSlideTransition();
-        });
         // slider mode is not "fade"
       } else {
         // if adaptiveHeight is true and next height is different from current height, animate to the new height
@@ -1483,7 +1530,7 @@
          * (e.g. if you destroy the slider on a next click),
          * it doesn't throw an error.
          */
-        if (typeof (position) !== 'undefined') {
+        if (typeof(position) !== 'undefined') {
           value = slider.settings.mode === 'horizontal' ? -(position.left - moveBy) : -position.top;
           // plugin values to be animated
           setPositionProperty(value, 'slide', slider.settings.speed);
@@ -1494,9 +1541,14 @@
       if (slider.settings.ariaHidden) {
         applyAriaHiddenAttributes(slider.active.index * getMoveBy());
       }
+      // If auto renew interval
+      if(slider.interval) {
+        clearInterval(slider.interval);
+        slider.interval = null;
+      }
       setTimeout(function() {
         slider.children.eq(slider.active.index).removeClass('out').addClass('in');
-        if (slider.settings.auto) {
+        if (slider.settings.auto && !slider.stopped) {
           el.startAuto();
         }
       }, 200);
@@ -1515,7 +1567,7 @@
       var theSlide = slider.children.eq(slider.active.index);
       var customDelay = parseInt(theSlide.attr('data-pauseBeforeOut')) || slider.settings.pauseBeforeOut;
       theSlide.removeClass('in').addClass('out');
-      if (customDelay  && slider.settings.animatedSlides) {
+      if (customDelay && slider.settings.animatedSlides) {
         setTimeout(function() {
           el.goToSlide(slideIndex, direction);
         }, customDelay);
@@ -1555,11 +1607,11 @@
       // if an interval already exists, disregard call
       var theSlide = slider.children.eq(slider.active.index);
       var customDelay = parseInt(theSlide.attr('data-pauseAfterIn')) || slider.settings.pauseAfterIn || 0;
-      if(!slider.settings.animatedSlides) {
+      if (!slider.settings.animatedSlides) {
         customDelay = 0;
       }
       customDelay += parseInt(theSlide.attr('data-pause')) || slider.settings.pause || 0;
-      console.info(customDelay);
+      //console.info(customDelay);
       if (slider.interval || (!customDelay)) {
         return;
       }
@@ -1577,6 +1629,7 @@
       if (slider.settings.autoControls && preventControlUpdate !== true) {
         updateAutoControls('stop');
       }
+      slider.stopped = false;
     };
     /**
      * Stops the auto show
@@ -1596,6 +1649,7 @@
       if (slider.settings.autoControls && preventControlUpdate !== true) {
         updateAutoControls('start');
       }
+      slider.stopped = true;
     };
     /**
      * Returns current slide index (zero-based)
