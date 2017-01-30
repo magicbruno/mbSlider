@@ -21,19 +21,25 @@ Let's get on with it!
 
 ##Installation
 
-First and most important, the jQuery library needs to be included (no need to download - link directly from Google). Next, download the package from this site and link the mbSlider CSS file (for the theme) and the mbSlider Javascript file.
+You must include the jQuery library. The simpliest way is to include it from a CDN (see the example below). Visit [https://code.jquery.com/](https://code.jquery.com/) for a complete list of available versions. 
 
-```html
-<!-- jQuery library (served from Google) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+Next, download the package from this site and link the mbSlider CSS file (for the theme) and the mbSlider Javascript file.
+
+```
+<!-- jQuery library -->
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  
 <!-- mbSlider Javascript file -->
 <script src="/mbslider/jquery.mbslider.min.js"></script>
+
 <!-- mbSlider CSS file -->
 <link href="/mbslider/jquery.mbslider.css" rel="stylesheet" />
 ```
 
 ##Use
-Create a `<ul class="mbslider">` element, with a `<li>` for each slide. Slides can contain images, video, or any other HTML content!
+Create a `<ul class="mbslider">` element, with a `<li>` for each slide. Slides can contain any HTML content!
 
 ```html
 <ul class="mbslider">
@@ -50,77 +56,131 @@ $(document).ready(function(){
   $('.mbslider').mbSlider();
 });
 ```
+##Animations
 You can animate any single HTML element inside a slide simply assigning to it some classes.
 
 ###General class
-To every animated element you must assign the class `animated`.This class set general behaviors to animated elements.
+To every animated element you must assign the class `animated`.This class set general behaviors.
 ###Animation classes
 Then you must:
-* Assign a class for enter animation that have the "In" suffix or infix (`fadeIn, flipInX, rotateIn, slideInUp`, etc.)
-* Assign a class for exit animation that have the "Out" suffix or infix (`fadeOut, flipInX, rotateIn, slideInUp`, etc.)
+* Assign a class for enter animation. Enter animation classes names have the "In" suffix or infix (like `fadeIn, flipInX, rotateIn, slideInUp`, etc.).
+* Assign a class for exit animation. Exit animation classes have the "Out" suffix or infix (`fadeOut, flipInX, rotateIn, slideInUp`, etc.)
+* Finally, if you need, you may modify animations speed and delay.
 
-**Available enter animation classes**: `fadeIn, fadeInUp, fadeInUpBig, fadeInDown, fadeInDownBig, fadeInLeft, fadeInLeftBig, fadeInRight, fadeInRightBig, bounceIn, bounceInUp, bounceInDown, bounceInLeft, bounceInRight, rotateIn, rotateInUpLeft, rotateInUpRight, rotateInDownLeft, rotateInDownRight, slideIn, slideInUp, slideInDown, slideInLeft, slideInRight, flipInX, flipOutX, lightSpeedIn, rollIn, zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp`
+**Available enter animation classes**: `fadeIn, fadeInUp, fadeInUpBig, fadeInDown, fadeInDownBig, fadeInLeft, fadeInLeftBig, fadeInRight, fadeInRightBig, bounceIn, bounceInUp, bounceInDown, bounceInLeft, bounceInRight, rotateIn, rotateInBig, rotateInUpLeft, rotateInUpRight, rotateInDownLeft, rotateInDownRight, slideIn, slideInUp, slideInDown, slideInLeft, slideInRight, flipInX, flipOutX, lightSpeedIn, rollIn, zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp`
 
 **Available exit animation classes**: `fadeOut, fadeOutUp, fadeOutUpBig, fadeOutDown, fadeOutDownBig, fadeOutLeft, fadeOutLeftBig, fadeOutRight, fadeOutRightBig, bounceOut, bounceOutUp, bounceOutDown, bounceOutLeft, bounceOutRight, rotateOut, rotateOutUpLeft, rotateOutUpRight, rotateOutDownLeft, rotateOutDownRight, slideOut, slideOutUp, slideOutDown, slideOutLeft, slideOutRight, flipOutX, flipOutX, lightSpeedOut, hingeOut, rollOut, zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp`
 
 ###Modifier classes
-* **Delay**: Animations has a base delay of 0.5 seconds (500 ms). You can use delayInXXXX and delayOutXXXX classes (where XXXX is 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000) to delay in and/or out animation and create temporized animation sequences.
+* **Delay**: You can use delayInXXXX and delayOutXXXX classes (where XXXX is 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000) to delay in and/or out animation and create temporized animation sequences.
 * **Speed**: Animations has a base speed of 1 second. You can modify animation speed using `slowIn, slowOut, fastIn, fastOut, xslowIn, xslowOut` classes.
 
+###Single slides timing
+You can customize single slides timing using `data-` attributes.
+
+**data-pause**
+The amount of time (in ms) between each auto transition. Override option `pause` setting.
+```
+<ul class="mbslider">
+  <li data-pause="7000">
+    .......
+  </li>
+</ul>
+```
+
+
+**data-pauseBeforeOut**
+
+Pause before slide change in milliseconds. It allows out animation completion before the next slide enter. It works both in auto mode and in manual mode. Override option `pauseBeforeOut` setting.
+```
+<ul class="mbslider">
+  <li data-pauseBeforeOut="2000">
+    .......
+  </li>
+</ul>
+```
+
+**data-pauseAfterIn**
+
+Pause added to slide pause in milliseconds. For every slide you may define a pause for in animation completion an a pause for slide reading. It works both in auto mode and in manual mode. Override option `pauseAfterIn` setting.
+```
+<ul class="mbslider">
+  <li data-pauseAfterIn="2000">
+    .......
+  </li>
+</ul>
+```
+
 ###Slide show Example
-Here's a simple slide show. 
+Here's the code of the slide show you will find on the documentatio home page. 
 
-```HTML
-  .......
-    <ul class="mbSlider fade">
-      <li id='slide_24' class="out">
-        <h1>
-          <img alt="" class="img-responsive center-block animated delay1000 flipInX hingeOut" src="/img/LogoWinstrap.png" />
-        </h1>
-        <h3 class="text-center animated bounceInRight bounceOutLeft">
-          Sample animations: flip
-        </h3> 
-      </li>
-      <li id='slide_29' class="out">
-        <h1>
-          <img alt="" class="img-responsive center-block animated delay1000 zoomIn zoomOut" src="{{assets}}/img/LogoWinstrap.png" />
-        </h1>
-        <h3 class="text-center animated bounceInRight bounceOutLeft">
-          Sample animations: zoom
-        </h3> 
-      </li>
-      <li id='slide_31' class="out">
-        <h1>
-          <img alt="" class="img-responsive center-block animated delay1000 rotateIn rotateOut" src="{{assets}}/img/LogoWinstrap.png" />
-        </h1>
-        <h3 class="text-center animated bounceInRight bounceOutLeft">
-          Sample animations: rotate
-        </h3> 
-      </li>
-    </ul>
-  .....
+HTML
 ```
-Animated slide show needs few more settings.
+<ul class="mbslider fade">
+  <li id='slide_1' class="out">
+    <h1><img alt="" class="img-responsive center-block animated delayOut1000 rotateInBig zoomOut" src="{{assets}}/img/LogoMbSlider_l.png" /></h1>
+    <h3 class="text-center animated delayIn1000 bounceInRight fadeOutDown">Create animated presentations in minutes!</h3> </li>
+  <li id='slide_2' class="out" data-pauseAfterIn="4000" data-pauseBeforeOut="5000" data-pause="5000">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <img alt="" class="img-responsive center-block animated rollIn rollOut delayOut3500" src="{{assets}}/img/conte-scontornato_L.png" />
+        </div>
+        <div class="col-sm-9">
+          <ul>
+            <li class="h2 animated delayIn1000 delayOut2000 bounceInRight hingeOut">
+              <big>Define timing for every slide</big>
+            </li>
+            <li class="h2 animated delayIn1500 delayOut1000 bounceInRight fadeOutDown"><big>Define in and out animations for every HTML element in the slide</big></li>
+            <li class="h2 animated delayIn2000 bounceInRight fadeOutDown"><big>Fully responsive - will adapt to any device</big></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li id='slide_3' class="out" data-pauseAfterIn="4000" data-pauseBeforeOut="5000" data-pause="5000">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <ul>
+            <li class="h2 animated delayIn1000 delayOut2000 bounceInLeft hingeOut"><big>Slides can contain any HTML content</big></li>
+            <li class="h2 animated delayIn1500 delayOut1000 bounceInLeft fadeOutDown"><big>Callback API and public methods</big></li>
+            <li class="h2 animated delayIn2000 bounceInLeft fadeOutDown"><big>Support Modern Browser with fall back for ie8 and ie9.</big></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-3">
+          <img alt="" class="img-responsive center-block animated rollInRight rollOutLeft delayOut3500 flippedY" src="{{assets}}/img/conte-scontornato-rotated.png" />
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+```
+JavaScript
 
 ```
-  <script>
-    $(function() {
-      var slider = $('.mbSlider');
-      slider.mbSlider({
-        animatedSlides: true, // Animate single elements
-        auto: true,           // Timed slide show
-        pause: 10000,         // Pause between slides
-        pauseBeforeOut: 2000, // Pause that allow exit completion
-        pager: false,         // No controls
-        controls: false,
-        onSliderLoad: function(currentIndex) {
-          setTimeout(function() {
-            slider.removeClass('fade');
-          }, 2000);
-        }
-      });
-    })
-  </script>
+<script>
+  $(function() {
+    var slider = $('.mbslider');
+    slider.mbSlider({
+      customAnimation: "slide",
+      auto: true,
+      pause: 8000,
+      pauseBeforeOut: 2000,
+      startSlide: 0,
+      pager: false,
+      controls: false,
+      onSliderLoad: function(currentIndex) {
+        setTimeout(function() {
+          // Important! Class fade hide slider content
+          // I use it to hide slider during initialization 
+          // and i remove it only whem the slider is ready.
+          slider.removeClass('fade');  
+        }, 2000);
+      }
+  })
+</script>
 ```
 
 ##Configuration options
@@ -419,12 +479,12 @@ options: boolean (true / false)
 ```
 ###Animations
 
-**animatedSlides**
+**customAnimation**
 
-Is set to true enterig and exiting slides transitions are handled by managing sigle slide elements animations. If animatedSlides is set to false `pauseBeforeOut` and `pauseAfterIn` values are ignored.  
+Is set to 'static' or 'slide' entering and exiting slides transitions must be handled by managing single slide elements animations. On *static* customAnimation, slides ar not removed from slider viewpoint. Delaying out transition you may perform next transition over old slide (se examples). On *slide* customAnimation slides are remove from viewpoint. Every in transition is from blank screen and every out transition is to blank screen.  If customAnimation is set to false transitions between slider are managed by mbSlider and `pauseBeforeOut` and `pauseAfterIn` values are ignored.  
 ```
 default: false
-options: boolean
+options: boolean | string (true | 'static' | 'sòide')
 ```
 
 **pauseBeforeOut**
