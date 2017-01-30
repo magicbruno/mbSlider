@@ -2,7 +2,25 @@
   var Docs = {
     // All pages
     common: {
-      init: function() {}
+      init: function() {
+        $('#footerBanner').mbSlider({
+          auto: true,
+          customAnimation: "slide",
+          pause: 3000,
+          pauseBeforeOut: 1200,
+          pauseAfterIn: 1000,
+          pager: false,
+          controls: false,
+          onSliderLoad: function(currentIndex) {
+            setTimeout(function() {
+              $('footer.footer').removeClass('down');
+            }, 2000);
+          }
+        });
+        $('footer .close').on('click', function() {
+          $('footer').addClass('down');
+        });
+      }
     }, // Home page
     home: {
       init: function() {
@@ -40,8 +58,7 @@
         var slider = $('#demoSlider').mbSlider({
           customAnimation: "static",
           animatedSlides: true,
-          pauseBeforeOut: 0,
-          mode: "fade"
+          pauseBeforeOut: 0
         });
       }
     },
@@ -103,7 +120,7 @@
       init: function() {
         var slider = $('#demoSlider').mbSlider({
           captions: true,
-          captionsCustomClass:'animated fadeInUp fadeOutDown'
+          captionsCustomClass: 'animated fadeInUp fadeOutDown'
         });
       }
     },
@@ -143,7 +160,7 @@
           auto: true,
           autoControls: true,
           customAnimation: "slide",
-          pauseBeforeOut:1500
+          pauseBeforeOut: 1500
         });
       }
     },

@@ -257,6 +257,13 @@ default: false
 options: boolean (true / false)
 ```
 
+**captionsCustomClass**
+Add custom class to captions. 
+```
+default: ""
+options: string
+```
+
 **ticker**
 Use slider in ticker mode (similar to a news ticker)
 ```

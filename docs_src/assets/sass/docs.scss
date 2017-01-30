@@ -1,117 +1,141 @@
 @import "bootstrap-compass";
-$font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
-$navbar-height: 60px;
-$navbar-default-bg: #e0e0e0;
-
+@import "bootstrap-variables";
 @import "bootstrap";
-
+@import "compass/css3";
 // Sticky Footer
 // --------------------
-
-html, body {
-	height: 100%;
+html,
+body {
+  height: 100%;
 }
+
 .wrapper {
-	min-height: 100%;
-	margin: 0 auto -211px; /* the bottom margin is the negative value of the footer's height */
-}
-
-footer, .push {
-	height: 211px; /* .push must be the same height as .footer */
+  min-height: 100%;
+  margin: 0 auto;
+  /* the bottom margin is the negative value of the footer's height */
+  @media only screen and (min-height: $screen-sm) {
+    margin-bottom: 100px;
+  }
 }
 
 // Nav
 // --------------------
-
 .navbar-brand {
-	padding: 10px 15px;
+  padding: 10px 15px;
   img {
     max-height: 100%;
     width: auto;
   }
 }
-.navbar-inverse {
-  background-color: darkslateblue;
-}
 
 // UI
 // --------------------
-
 .btn-outline {
-	@include button-variant(#5280dd, transparent, #5280dd);
-	border-width: 3px;
+  @include button-variant(#5280dd, transparent, #5280dd);
+  border-width: 3px;
 }
 
 .sub-lead {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 
 // Home
 // --------------------
-
 .version {
-	font-family: monospace;
+  font-family: monospace;
+}
+
+.xstrong {
+  font-weight: 800;
+  font-family: "SelawikBold", Helvetica, Arial, sans-serif;
+}
+
+.light {
+  font-weight: 300;
+  font-family: $headings-font-family;
 }
 
 // Demos
 // --------------------
-
 .demo-list {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 // Options
 // --------------------
-
 .options {
-	h1 {
-		margin-bottom: 10px;
-	}
-	h2 {
-		font-size: 1.5em;
-		margin-bottom: 15px;
-	}
+  h1 {
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
 }
 
 .option-name {
-	font-weight: bold;
-	font-size: 1em;
-	margin-bottom: 2px;
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 2px;
 }
 
 .option-desc {
-	font-size: .8em;
-	line-height: 1.4em;
-	color: #666;
+  font-size: .8em;
+  line-height: 1.4em;
+  color: #666;
 }
 
+.docs-content {
+    @media only screen and (min-height: $screen-sm) {
+    margin-bottom: 100px;
+  }
+}
 // Footer
 // --------------------
-
 footer {
-	background: #e0e0e0;
-	border-top: solid 3px #c3c3c3;
-	padding: 40px 0 40px;
-	font-family: "Arial", sans-serif;
-	p {
-		font-size: 1em;
-		margin-bottom: 5px;
-		.pix {
-			margin-top: 25px;
-		}
-	}
-	h4 {
-		font-size: 1.25em;
-		font-weight: bold;
-	}
-	.left {
-		float: left;
-		width: 500px;
-	}
-	.first h4 {
-		padding-top: 3px;
-	}
-	.twitter {
-		margin-top: 16px;
-	}
+  background: black;
+  color: white;
+  //border-top: solid 3px #c3c3c3;
+  padding: 0;
+  position: relative;
+  @include transition(all, 1s);
+  a,
+  a:hover,
+  a:focus,
+  .close {
+    color: white;
+  }
+  .close {
+    opacity: 0.8;
+  }
+  .list-inline li {
+    padding: 0 15px;
+  }
+  @media only screen and (min-width: $screen-sm) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &.down {
+      bottom: -100%;
+      @include transition(all, 2s);
+    }
+  }
+}
+
+.mbslider.photo-slide {
+  min-height: 180px;
+  @media only screen and (min-width: $screen-xs) {
+    min-height: ceil(($screen-xs - $grid-gutter-width) / 16 * 9);
+  }
+  @media only screen and (min-width: $screen-sm) {
+    min-height: ceil(($container-sm - $grid-gutter-width) / 16 * 9);
+  }
+  @media only screen and (min-width: $screen-md) {
+    min-height: ceil(($container-desktop - $grid-gutter-width) / 16 * 9);
+  }
+  @media only screen and (min-width: $screen-lg) {
+    min-height: ceil(($container-large-desktop - $grid-gutter-width) / 16 * 9);
+  }
+
 }

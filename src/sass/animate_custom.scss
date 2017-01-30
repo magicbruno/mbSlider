@@ -99,7 +99,9 @@ $use-flip				        :	  false !default;
 // SPECIAL
 @import "animations/special/hinge",
 	"animations/special/rollIn",
-	"animations/special/rollOut";
+	"animations/special/rollOut",
+	"animations/special/rollInRight",
+	"animations/special/rollOutLeft";
 
 // ZOOM
 @import "animations/zoom-enter/zoomIn",

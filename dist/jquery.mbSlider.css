@@ -1936,6 +1936,58 @@ body {
   animation-name: rollOut;
 }
 
+@-webkit-keyframes rollInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(150%) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+  }
+}
+@keyframes rollInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150%) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+/* line 24, ../sass/animations/special/_rollInRight.scss */
+.in .rollInRight {
+  -webkit-animation-name: rollInRight;
+  animation-name: rollInRight;
+}
+
+@-webkit-keyframes rollOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-150%) rotate(-180deg);
+  }
+}
+@keyframes rollOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-150%) rotate(-180deg);
+  }
+}
+/* line 24, ../sass/animations/special/_rollOutLeft.scss */
+.out .rollOutLeft {
+  -webkit-animation-name: rollOutLeft;
+  animation-name: rollOutLeft;
+}
+
 @-webkit-keyframes zoomIn {
   0% {
     opacity: 0;
