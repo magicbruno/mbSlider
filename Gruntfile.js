@@ -1,9 +1,10 @@
 /**
  * mbSlider
  *
- * Steven Wanderski
+ * Bruno Migliaretti
+ * base on bxSlider by Steven Wanderski
  *
- * Copyright (c) 2014
+ * Copyright (c) 2017
  * Licensed under the MIT license.
  */
 module.exports = function(grunt) {
@@ -29,8 +30,8 @@ module.exports = function(grunt) {
           production: false,
           assets: '<%= app.docs.dest %>/assets',
           postprocess: require('pretty'),
-          //   mybaseDir: path.resolve('<%= app.docs.dest %>'),
-          mybaseDir: '/<%= app.docs.dest %>',
+          mybaseDir: path.resolve('<%= app.docs.dest %>'),
+          //mybaseDir: '/<%= app.docs.dest %>',
 
           // metadata
           pkg: '<%= pkg %>',
@@ -304,6 +305,11 @@ module.exports = function(grunt) {
             cwd: 'dist/',
             src: ['**'],
             dest: 'mbslider.<%= pkg.version %>'
+          }, {
+            expand: true,
+            cwd: 'docs/',
+            src: ['**'],
+            dest: 'docs.<%= pkg.version %>'
           }]
         }
       }
