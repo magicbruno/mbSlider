@@ -48,6 +48,8 @@
     "carousel",
     "mbslider",
     "jQuery",
+    "jquery-plugin",
+    "ecosystem:jquery",
     "plugin",
     "animation"
   ]
