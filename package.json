@@ -1,7 +1,7 @@
 {
-  "name": "mbSlider",
-  "description": "Touch enabled jQuery plugin for creating animated sliders. Based on bxslider by Steven Wanderski",
-  "version": "1.0.0",
+  "name": "mbslider",
+  "description": "Touch enabled jQuery plugin for creating animated presentation in minutes.",
+  "version": "1.0.1",
   "homepage": "http://mbslider.magiccms.org",
   "author": {
     "name": "Bruno Migliaretti",
@@ -19,6 +19,11 @@
   "bugs": {
     "url": "https://github.com/magicbruno/mbSlider/issues"
   },
+  "dependencies": {
+    "jquery": ">= 1.8.3"
+  },
+  "main": "dist/jquery.mbslider.min.js",
+  "files": ["dist"],
   "devDependencies": {
     "assemble": "~0.4.37",
     "grunt": "~0.4.5",
