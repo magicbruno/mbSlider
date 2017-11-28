@@ -1,4 +1,4 @@
-require 'compass/import-once/activate'
+ require 'compass/import-once/activate'
 # Require any additional compass plugins here.
 
 
@@ -26,3 +26,21 @@ javascripts_dir = "src/compass compilejs"
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
 
 cache_path = 'C:\Temp\sass-cache'
+require 'autoprefixer-rails'
+
+on_stylesheet_saved do |file|
+  css = File.read(file)
+  map = file + '.map'
+
+  if File.exists? map
+    result = AutoprefixerRails.process(css,
+      from: file,
+      to:   file,
+      map:  { prev: File.read(map), inline: false },
+	    browsers: ['> 1%', 'ie > 8'])
+    File.open(file, 'w') { |io| io << result.css }
+    File.open(map,  'w') { |io| io << result.map }
+  else
+    File.open(file, 'w') { |io| io << AutoprefixerRails.process(css) }
+  end
+end
