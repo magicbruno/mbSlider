@@ -1,6 +1,6 @@
 #mbSlider 1.0.0
 ####A flexibile slider system to create animated presentations.
-Based on bxSlider by by: Steven Wanderski - [http://stevenwanderski.com](http://stevenwanderski.com)
+Based on bxSlider by by: Steven Wanderski
 
 ###Why should I use this slider?
 * Define timing for every slide 
@@ -12,7 +12,7 @@ Based on bxSlider by by: Steven Wanderski - [http://stevenwanderski.com](http://
 * Browser support: Modern Browser with fall back for ie8 and ie9.
 * Tons of configuration options
 
-For complete documentation visit:
+For complete documentation visit: http://mbslider.magiccms.org
 
 ###License
 Released under the MIT license - http://opensource.org/licenses/MIT

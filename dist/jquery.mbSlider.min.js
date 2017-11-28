@@ -1,5 +1,5 @@
 /**
- * mbSlider v1.0.0
+ * mbSlider v1.1.0
  * Copyright 2013-2017 Bruno Migliaretti
  * Written while drinking Belgian ales and listening to jazz
 

@@ -1,7 +1,7 @@
 {
   "name": "mbslider",
   "description": "Touch enabled jQuery plugin for creating animated presentation in minutes.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "homepage": "http://mbslider.magiccms.org",
   "author": {
     "name": "Bruno Migliaretti",

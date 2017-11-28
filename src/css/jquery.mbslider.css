@@ -95,8 +95,6 @@ ul.mbslider {
   height: 10px;
   margin: 0 5px;
   outline: 0;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 /* line 22, ../sass/mbslider/_controls.scss */
