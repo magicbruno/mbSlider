@@ -2,8 +2,9 @@
 <h3>A flexibile slider system to create animated presentations.</h3>
 Based on bxSlider by by: Steven Wanderski
 
-<h3>Why should I use this slider?</h3>
-* Define timing for every slide 
+<h3>Why should I use this slider?</h3> 
+
+* Define timing for every slide  
 * Define in (entering) and out (exiting) animations for every HTML element in the slide
 * Fully responsive - will adapt to any device
 * Horizontal, vertical, and fade modes
@@ -12,14 +13,15 @@ Based on bxSlider by by: Steven Wanderski
 * Browser support: Modern Browser with fall back for ie8 and ie9.
 * Tons of configuration options
 
+
 For complete documentation visit: http://mbslider.magiccms.org
 
-###License
+### License ###
 Released under the MIT license - http://opensource.org/licenses/MIT
 
 Let's get on with it!
 
-##Installation
+## Installation ##
 
 You must include the jQuery library. The simpliest way is to include it from a CDN (see the example below). Visit [https://code.jquery.com/](https://code.jquery.com/) for a complete list of available versions. 
 
@@ -38,7 +40,7 @@ Next, download the package from this site and link the mbSlider CSS file (for th
 <link href="/mbslider/jquery.mbslider.css" rel="stylesheet" />
 ```
 
-##Use
+## Use ##
 Create a `<ul class="mbslider">` element, with a `<li>` for each slide. Slides can contain any HTML content!
 
 ```html
@@ -56,12 +58,12 @@ $(document).ready(function(){
   $('.mbslider').mbSlider();
 });
 ```
-##Animations
+## Animations ##
 You can animate any single HTML element inside a slide simply assigning to it some classes.
 
-###General class
+### General class ###
 To every animated element you must assign the class `animated`.This class set general behaviors.
-###Animation classes
+### Animation classes ###
 Then you must:
 * Assign a class for enter animation. Enter animation classes names have the "In" suffix or infix (like `fadeIn, flipInX, rotateIn, slideInUp`, etc.).
 * Assign a class for exit animation. Exit animation classes have the "Out" suffix or infix (`fadeOut, flipInX, rotateIn, slideInUp`, etc.)
@@ -71,11 +73,11 @@ Then you must:
 
 **Available exit animation classes**: `fadeOut, fadeOutUp, fadeOutUpBig, fadeOutDown, fadeOutDownBig, fadeOutLeft, fadeOutLeftBig, fadeOutRight, fadeOutRightBig, bounceOut, bounceOutUp, bounceOutDown, bounceOutLeft, bounceOutRight, rotateOut, rotateOutUpLeft, rotateOutUpRight, rotateOutDownLeft, rotateOutDownRight, slideOut, slideOutUp, slideOutDown, slideOutLeft, slideOutRight, flipOutX, flipOutX, lightSpeedOut, hingeOut, rollOut, zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp`
 
-###Modifier classes
+### Modifier classes ###
 * **Delay**: You can use delayInXXXX and delayOutXXXX classes (where XXXX is 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000) to delay in and/or out animation and create temporized animation sequences.
 * **Speed**: Animations has a base speed of 1 second. You can modify animation speed using `slowIn, slowOut, fastIn, fastOut, xslowIn, xslowOut` classes.
 
-###Single slides timing
+### Single slides timing ###
 You can customize single slides timing using `data-` attributes.
 
 **data-pause**
@@ -111,7 +113,7 @@ Pause added to slide pause in milliseconds. For every slide you may define a pau
 </ul>
 ```
 
-###Slide show Example
+### Slide show Example ###
 Here's the code of the slide show you will find on the documentatio home page. 
 
 HTML
@@ -183,9 +185,9 @@ JavaScript
 </script>
 ```
 
-##Configuration options
+## Configuration options ###
 
-###General
+### General ###
 
 **mode**
 Type of transition between slides
@@ -362,7 +364,7 @@ default: 'bx-wrapper'
 options: string
 ```
 
-###Pager
+### Pager ###
 
 **pager**
 If <code>true</code>, a pager will be added
@@ -406,7 +408,7 @@ default: null
 options: function(slideIndex)
 ```
 
-###Controls
+### Controls ###
 
 **controls**
 If <code>true</code>, "Next" / "Prev" controls will be added
@@ -484,7 +486,7 @@ Enable keyboard navigation for visible sliders
 default: false
 options: boolean (true / false)
 ```
-###Animations
+### Animations ###
 
 **customAnimation**
 
@@ -509,7 +511,7 @@ Pause added to slide pause in milliseconds. For every slide you may define a pau
 default: 0
 options: integer
 ```
-###Auto
+### Auto ###
 
 **auto**
 Slides will automatically transition
@@ -559,7 +561,7 @@ default: 0
 options: integer
 ```
 
-###Carousel
+### Carousel ###
 
 **minSlides**
 The minimum number of slides to be shown. Slides will be sized down if carousel becomes smaller than the original size.
@@ -596,7 +598,7 @@ default: false
 options: boolean (true / false)
 ```
 
-###Keyboard
+### Keyboard ###
 
 **keyboardEnabled**
 Allows for keyboard control of visible slider. Keypress ignored if slider not visible.
@@ -605,7 +607,7 @@ default: false
 options: boolean (true / false)
 ```
 
-###Accessibility
+### Accessibility ###
 **ariaLive**
 Adds Aria Live attribute to slider.
 ```
@@ -620,7 +622,7 @@ default: true
 options: boolean (true / false)
 ```
 
-###Callbacks
+### Callbacks ###
 
 **onSliderLoad**
 Executes immediately after the slider is fully loaded
@@ -684,7 +686,7 @@ arguments:
   newIndex: element index of the destination slide (after the transition)
 ```
 
-###Public methods
+### Public methods ###
 
 **goToSlide**
 Performs a slide transition to the supplied slide index (zero-based)
@@ -766,7 +768,7 @@ slider = $('.mbslider').mbSlider();
 slider.destroySlider();
 ```
 
-### Install Grunt and Bower
+### Install Grunt and Bower ###
 
 **Unfamiliar with npm? Don't have node installed?** [Download and install node.js](http://nodejs.org/download/) before proceeding.
 
