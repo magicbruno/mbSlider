@@ -1,8 +1,8 @@
-#mbSlider 1.0.0
-####A flexibile slider system to create animated presentations.
+<h1>mbSlider 1.0.0</h1>
+<h3>A flexibile slider system to create animated presentations.</h3>
 Based on bxSlider by by: Steven Wanderski
 
-###Why should I use this slider?
+<h3>Why should I use this slider?</h3>
 * Define timing for every slide 
 * Define in (entering) and out (exiting) animations for every HTML element in the slide
 * Fully responsive - will adapt to any device
