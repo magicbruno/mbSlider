@@ -1,6 +1,6 @@
 /**
  * mbSlider v1.1.0
- * Copyright 2013-2017 Bruno Migliaretti
+ * Copyright 2013-2018 Bruno Migliaretti
  * Written while drinking Belgian ales and listening to jazz
 
  * Licensed under MIT (http://opensource.org/licenses/MIT)
