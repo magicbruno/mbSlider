@@ -1,4 +1,4 @@
-<h1>mbSlider 1.0.0</h1>
+<h1>mbSlider 1.1.0</h1>
 <h3>A flexibile slider system to create animated presentations.</h3>
 Based on bxSlider by by: Steven Wanderski
 

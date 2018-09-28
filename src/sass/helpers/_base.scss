@@ -18,8 +18,10 @@ body {
     -webkit-animation-iteration-count: $base-iteration-count;
     animation-iteration-count: $base-iteration-count;
   }
+  
   &.hinge {
     @include animate-prefixer(animation-duration, $base-duration * 2);
+    
   }
   &.bounceIn,
   &.bounceOut {
@@ -84,4 +86,5 @@ body {
 
 .flippedX {
   @include animate-prefixer(transform, scale(-1, 1));
+  
 }

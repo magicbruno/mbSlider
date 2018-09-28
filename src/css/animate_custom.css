@@ -22,20 +22,20 @@ body {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 21, ../sass/helpers/_base.scss */
+/* line 22, ../sass/helpers/_base.scss */
 .animated.hinge,
 .not-mobile-browser .animated-not-mobile.hinge {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
 }
-/* line 24, ../sass/helpers/_base.scss */
+/* line 26, ../sass/helpers/_base.scss */
 .animated.bounceIn, .animated.bounceOut,
 .not-mobile-browser .animated-not-mobile.bounceIn,
 .not-mobile-browser .animated-not-mobile.bounceOut {
   -webkit-animation-duration: 0.75s;
   animation-duration: 0.75s;
 }
-/* line 28, ../sass/helpers/_base.scss */
+/* line 30, ../sass/helpers/_base.scss */
 .animated.flipOutX, .animated.flipOutY,
 .not-mobile-browser .animated-not-mobile.flipOutX,
 .not-mobile-browser .animated-not-mobile.flipOutY {
@@ -43,35 +43,35 @@ body {
   animation-duration: 0.75s;
 }
 
-/* line 36, ../sass/helpers/_base.scss */
+/* line 38, ../sass/helpers/_base.scss */
 .in .animated.fast, .in .animated.fastIn,
 .not-mobile-browser .in .animated-not-mobile.fast,
 .not-mobile-browser .in .animated-not-mobile.fastIn {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
 }
-/* line 40, ../sass/helpers/_base.scss */
+/* line 42, ../sass/helpers/_base.scss */
 .in .animated.slow, .in .animated.slowIn,
 .not-mobile-browser .in .animated-not-mobile.slow,
 .not-mobile-browser .in .animated-not-mobile.slowIn {
   -webkit-animation-duration: 1.5s;
   animation-duration: 1.5s;
 }
-/* line 44, ../sass/helpers/_base.scss */
+/* line 46, ../sass/helpers/_base.scss */
 .in .animated.xslow, .in .animated.xslowIn,
 .not-mobile-browser .in .animated-not-mobile.xslow,
 .not-mobile-browser .in .animated-not-mobile.xslowIn {
   -webkit-animation-duration: 2.5s;
   animation-duration: 2.5s;
 }
-/* line 49, ../sass/helpers/_base.scss */
+/* line 51, ../sass/helpers/_base.scss */
 .in .animated.hinge.fast, .in .animated.hinge.fastIn,
 .not-mobile-browser .in .animated-not-mobile.hinge.fast,
 .not-mobile-browser .in .animated-not-mobile.hinge.fastIn {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 53, ../sass/helpers/_base.scss */
+/* line 55, ../sass/helpers/_base.scss */
 .in .animated.hinge.slow, .in .animated.hinge.slowIn,
 .not-mobile-browser .in .animated-not-mobile.hinge.slow,
 .not-mobile-browser .in .animated-not-mobile.hinge.slowIn {
@@ -79,44 +79,44 @@ body {
   animation-duration: 3s;
 }
 
-/* line 62, ../sass/helpers/_base.scss */
+/* line 64, ../sass/helpers/_base.scss */
 .in .animated.fastOut,
 .not-mobile-browser .in .animated-not-mobile.fastOut {
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
 }
-/* line 65, ../sass/helpers/_base.scss */
+/* line 67, ../sass/helpers/_base.scss */
 .in .animated.slowOut,
 .not-mobile-browser .in .animated-not-mobile.slowOut {
   -webkit-animation-duration: 1.5s;
   animation-duration: 1.5s;
 }
-/* line 68, ../sass/helpers/_base.scss */
+/* line 70, ../sass/helpers/_base.scss */
 .in .animated.xslowOut,
 .not-mobile-browser .in .animated-not-mobile.xslowOut {
   -webkit-animation-duration: 2.5s;
   animation-duration: 2.5s;
 }
-/* line 72, ../sass/helpers/_base.scss */
+/* line 74, ../sass/helpers/_base.scss */
 .in .animated.hinge.fastOut,
 .not-mobile-browser .in .animated-not-mobile.hinge.fastOut {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 75, ../sass/helpers/_base.scss */
+/* line 77, ../sass/helpers/_base.scss */
 .in .animated.hinge.slowOut,
 .not-mobile-browser .in .animated-not-mobile.hinge.slowOut {
   -webkit-animation-duration: 3s;
   animation-duration: 3s;
 }
 
-/* line 81, ../sass/helpers/_base.scss */
+/* line 83, ../sass/helpers/_base.scss */
 .flippedY {
   -webkit-transform: scale(1, -1);
   transform: scale(1, -1);
 }
 
-/* line 85, ../sass/helpers/_base.scss */
+/* line 87, ../sass/helpers/_base.scss */
 .flippedX {
   -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1);
